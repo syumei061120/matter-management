@@ -1,24 +1,93 @@
-# README
+## usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column                | Type       | Options                         |
+| --------------------- | ---------- | ------------------------------- |
+| family_name           | string     | null: false                     |
+| first_name            | string     | null: false                     |
+| family_name_kana      | string     | null: false                     |
+| first_name_kana       | string     | null: false                     |
+| email                 | string     | null: false                     |
+| password              | string     | null: false                     |
+| administrator         | int        |                                 |
 
-Things you may want to cover:
+### Association
 
-* Ruby version
+-has_many :matters
+-has_many :business_talk_records
 
-* System dependencies
+## mattersテーブル
 
-* Configuration
+| Column                | Type       | Options                         |
+| --------------------- | ---------- | ------------------------------- |
+| user                  | references | null: false, foreign_key: true  |
+| sales_staff           | references | null: false, foreign_key: true  |
+| matter_name           | string     | null: false                     |
+| matter_explain        | string     |                                 |
+| product               | string     | null: false                     |
+| sale_price            | int        |                                 |
+| profit_price          | int        |                                 |
+| sale_time             | int        |                                 |
+| priority_id           | int        | null: false                     |
+| reliability_id        | int        | null: false                     |
+| progress_id           | int        | null: false                     |
+| occasion              | string     | null: false                     |
+| staff_in_charge       | string     | null: false                     |
+| is_edited             | int        | null: false                     |
 
-* Database creation
+### Association
 
-* Database initialization
+-belongs_to  :user
+-has_many    :clients, through: matter_clients
+-has_many    :business_talks_records
+-belongs_to  :sales_staff
 
-* How to run the test suite
+## business_talk_recordsテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column                | Type       | Options                         |
+| --------------------- | ---------- | ------------------------------- |
+| user                  | references | null: false, foreign_key: true  |
+| matter                | references | null: false, foreign_key: true  |
+| business_talk_start   | datetime   | null: false                     |
+| business_talk_end     | datetime   | null: false                     |
+| business_talk_explain | text       | null: false                     |
 
-* Deployment instructions
+### Association
 
-* ...
+-belongs_to  :user
+-belongs_to  :matter
+
+## sales_staffsテーブル
+
+| Column                | Type       | Options                         |
+| --------------------- | ---------- | ------------------------------- |
+| sales_department      | string     | null: false                     |
+| sales_staff           | string     | null: false                     |
+
+### Association
+
+-has_many    :matters
+
+## matter_clientsテーブル
+
+| Column                | Type       | Options                         |
+| --------------------- | ---------- | ------------------------------- |
+| matter_id             | int        | null: false, foreign_key: true  |
+| client_id             | int        | null: false, foreign_key: true  |
+
+### Association
+
+-belongs_to  :matter
+-belongs_to  :client
+
+## clients
+
+| Column                | Type       | Options                         |
+| --------------------- | ---------- | ------------------------------- |
+| client_company        | string     | null: false                     |
+| client_department     | string     | null: false                     |
+| client_name           | string     | null: false                     |
+
+### Association
+
+-has_many    :matter_clients
+-has_many    :matters, through: matter_clients
