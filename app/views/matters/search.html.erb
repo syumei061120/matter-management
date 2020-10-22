@@ -1,0 +1,12 @@
+<%= render "shared/header" %>
+<div class='matter-search'>
+  <div class="search-main">
+      <%= form_for @p, url:"#", class: 'search-form' do |f| %>
+      <%= f.search_field :name_cont, class: 'input-box', placeholder: 'キーワードから探す'  %>
+      <button class="search-button">
+        <%= image_tag "sample-logo.png", class:"search-icon" %>
+      </button>
+    <% end %>
+  </div>
+
+<%= render "shared/footer" %>
