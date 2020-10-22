@@ -1,0 +1,61 @@
+
+.main-header {
+  width: 70vw;
+  padding: 2vh 15vw;
+  display: flex;
+  flex-direction: column;
+  background-color:black;
+}
+
+.nav {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1vh 0;
+}
+
+.lists-left {
+  display: flex;
+  min-width: 200px;
+
+}
+
+.matter-registration {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #fff;
+}
+
+.matter-search {
+  text-decoration: none;
+  color: #fff;
+}
+
+.lists-right {
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+}
+.login-link {
+  text-decoration: none;
+  color: #fff;
+  margin-right: 3vw;
+}
+.sign-up-link {
+  text-decoration: none;
+  color: #fff;
+  margin-right: 3vw;
+}
+
+.my-page-link {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #fff;
+}
+
+.logout-link {
+  text-decoration: none;
+  color: #fff;
+}

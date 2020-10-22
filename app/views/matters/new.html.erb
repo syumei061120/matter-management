@@ -1,0 +1,74 @@
+<div class='new-matter'>
+  <div class='new-matter-main'>
+    <h2>新規案件を登録してください</h2>
+      <%= form_with model: @matter, url:matters_path, local: true do |f|  %>
+      <div> 
+        案件名
+        <%= f.text_area :matter_name, class:"items-text", id:"item-name" %>
+      </div>
+      <div>
+        案件詳細
+        <%= f.text_area :matter_explain, class:"items-text", id:"item-name" %>
+      </div>
+      <div>
+        商材名
+        <%= f.text_area :product, class:"items-text", id:"item-name" %>
+      </div>
+      <div>
+        販売金額見込み
+        <%= f.text_area :sale_price, class:"items-text", id:"item-name" %>
+      </div>
+      <div>
+        利益見込み
+        <%= f.text_area :profit_price, class:"items-text", id:"item-name" %>
+      </div>
+      <div>
+        販売時期見込み
+        <%= f.text_area :sale_time, class:"items-text", id:"item-name" %>
+      </div>
+      <div>
+        重点度
+        <%= f.text_area :priority, class:"items-text", id:"item-name" %>
+      </div>
+      <div>
+        確度
+        <%= f.text_area :sale_time, class:"items-text", id:"item-name" %>
+      </div>
+      <div>
+        進捗
+        <%= f.text_area :sale_time, class:"items-text", id:"item-name" %>
+      </div>
+      <div>
+        きっかけ
+        <%= f.text_area :sale_time, class:"items-text", id:"item-name" %>
+      </div>
+      <div>
+        顧客情報（会社名）
+        <%= f.text_area :client_company, class:"items-text", id:"item-name" %>
+      </div>
+      <div>
+        顧客情報（部署・役職）
+        <%= f.text_area :client_department, class:"items-text", id:"item-name" %>
+      </div>
+      <div>
+        顧客情報（名前）
+        <%= f.text_area :client_name, class:"items-text", id:"item-name" %>
+      </div>
+      <div>
+        担当営業部門
+        <%= f.text_area :sales_department, class:"items-text", id:"item-name" %>
+      </div>
+      <div>
+        担当営業
+        <%= f.text_area :sales_staff, class:"items-text", id:"item-name" %>
+      </div>
+      <div>
+        担当SE
+        <%= f.text_area :staff_in_charge, class:"items-text", id:"item-name" %>
+      </div>
+      <div>
+       <%= f.submit%>
+      </div>
+    <% end %>
+  </div>
+</div>
