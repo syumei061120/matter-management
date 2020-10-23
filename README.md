@@ -8,7 +8,7 @@
 | first_name_kana       | string     | null: false                     |
 | email                 | string     | null: false                     |
 | password              | string     | null: false                     |
-| administrator         | int        |                                 |
+| administrator_id      | int        |                                 |
 
 ### Association
 
