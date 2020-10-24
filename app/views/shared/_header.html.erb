@@ -2,14 +2,22 @@
 <header class='main-header'>
   <div class='nav'>
     <ul class='lists-left'>
+      <li><%= link_to 'Top', root_path, class: "root-link" %></li>
       <li><%= link_to '案件登録', new_matter_path, class: "matter-registration" %></li>
       <li><%= link_to '案件検索', search_matters_path, class: "matter-search" %></li>
     </ul>
     <ul class='lists-right'>
-      <li><%= link_to 'ログイン', new_user_session_path, class: "login-link" %></li>
-      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up-link" %></li>
-      <%# <li><%= link_to 'マイページ', user_path(current_user.id), class: "my-page-link" %></li> %>
-      <li><%= link_to 'ログアウト', "#", class: "logout-link" %></li>
+      <% if user_signed_in? %>
+        <li><%= image_tag current_user.user_image, class:"user-icon" %></li>
+        <li><%= link_to "#{current_user.family_name}さんのマイページ", user_path(current_user.id), class: "my-page-link" %></li>
+        <li><%= link_to destroy_user_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} do %>
+              <div class="logout-link">ログアウト</div>
+            <% end %>
+        </li>
+      <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "login-link" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up-link" %></li>
+      <% end %>
     </ul>
   </div>
 </header>
