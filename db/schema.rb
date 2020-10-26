@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_22_123017) do
+ActiveRecord::Schema.define(version: 2020_10_26_065508) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,27 @@ ActiveRecord::Schema.define(version: 2020_10_22_123017) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "matters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "sales_staff_id", null: false
+    t.string "matter_name", null: false
+    t.text "matter_explain"
+    t.string "product", null: false
+    t.integer "sale_price"
+    t.integer "profit_price"
+    t.date "sale_time"
+    t.integer "priority_id", null: false
+    t.integer "reliability_id", null: false
+    t.integer "progress_id", null: false
+    t.string "occation", null: false
+    t.string "staff_in_charge", null: false
+    t.boolean "is_edited", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sales_staff_id"], name: "index_matters_on_sales_staff_id"
+    t.index ["user_id"], name: "index_matters_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "family_name", null: false
     t.string "first_name", null: false
@@ -51,4 +72,5 @@ ActiveRecord::Schema.define(version: 2020_10_22_123017) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "matters", "users"
 end
