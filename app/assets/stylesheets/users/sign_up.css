@@ -1,0 +1,109 @@
+/* サインアップ、サインイン、ユーザー情報編集機能共通 */
+.user {
+  min-height: 100vh;
+  height: 100%;
+  background-color: rgb(230, 238, 243);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user-title {
+  width: 700px;
+  height: 150px;
+  text-align: center;
+  line-height: 150px;
+  font-size: 30px;
+}
+
+.user-flash-message {
+  font-size: 20px;
+  text-align: center;
+  color: red;
+  margin: 20px;
+}
+
+.user-forms {
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(159, 159, 163);
+  border-radius: 4px;
+  padding: 20px 0;
+  margin-bottom: 50px;
+}
+
+.user-table {
+  margin-bottom: 20px;
+}
+
+.user-table th {
+  font-size: 16px;
+  width: 200px;
+  height: 60px;
+  padding-left: 10px;
+  border-bottom: solid 1px grey;
+  vertical-align: middle;
+}
+
+.user-table td {
+  width: 350px;
+  height: 60px;
+  border-bottom: solid 1px grey;
+  vertical-align: middle;
+}
+
+.user-image-preview>img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 20px 0;
+}
+
+.user-image-registered {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 20px 0;
+}
+
+.user-text,
+.user-form {
+  width: 300px;
+  height: 30px;
+  line-height: 30px;
+  padding: 5px 16px 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+}
+
+.user-text {
+  margin-top: 5px;
+}
+
+.user-password-explain {
+  font-size: 8px;
+}
+
+#user_administrator_id {
+  font-size: 16px;
+  height: 40px;
+  width: 150px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.user-button {
+  width: 200px;
+  height: 40px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}

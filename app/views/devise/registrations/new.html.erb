@@ -1,29 +1,68 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<body>
+  <div class="user">
+    <div class="user-title">
+      <h2>新規利用登録</h2>
+    </div>
+    <div class="user-main">
+      <%= form_with model: @user, url:user_registration_path, class:"user-forms", local: true do |f| %>
+      <%= render "shared/error_messages", model: @user %>
+      <table class="user-table">
+        <tr>
+          <th>アイコン画像</th>
+          <td><%= f.file_field :user_image, id:"user-image" %>
+            <div id="user-image-list"></div>
+          </td>
+        </tr>
+        <tr>
+          <th>姓</th>
+          <td><%= f.text_area :family_name, class:"user-text", id:"family_name" %>
+          </td>
+        </tr>
+        <tr>
+          <th>名</th>
+          <td><%= f.text_area :first_name, class:"user-text", id:"first-name" %>
+          </td>
+        </tr>
+        <tr>
+          <th>姓(カナ)</th>
+          <td><%= f.text_area :family_name_kana, class:"user-text", id:"family_name_kana" %>
+          </td>
+        </tr>
+        <tr>
+          <th>名(カナ)</th>
+          <td><%= f.text_area :first_name_kana, class:"user-text", id:"first_name_kana" %>
+          </td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= f.email_field :email, autofocus: true, class:"user-form", autocomplete: "email" %>
+          </td>
+        </tr>
+        <tr>
+          <th>パスワード <br>
+            <p class="user-password-explain">
+              半角英語・数字を両方用いて<br>
+              6文字以上で設定して下さい
+            </p>
+          </th>
+          <td><%= f.password_field :password, class:"user-form" %>
+          </td>
+        </tr>
+        <tr>
+          <th>パスワード(確認用) </th>
+          <td><%= f.password_field :password_confirmation, class:"user-form" %>
+          </td>
+        </tr>
+        <tr>
+          <th>権限 </th>
+          <td><%= f.collection_select :administrator_id, Administrator.all, :id, :name %>
+          </td>
+        </tr>
+      </table>
+      <div><%= f.submit "新規登録" ,class:"user-button" %>
+      </div>
+      <% end %>
+      <p><%= link_to "＞＞ログインはこちら", new_user_session_path %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</body>

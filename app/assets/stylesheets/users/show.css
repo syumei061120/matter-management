@@ -1,0 +1,54 @@
+.mypage {
+  display: flex;
+  height: 80vh;
+  background-color: rgb(230, 238, 243);
+}
+.mypage-side {
+  background-color: #dcdcdc;
+  width: 250px;
+  padding: 10px;
+}
+.mypage-side ul {
+  list-style: none;
+}
+.mypage-side li {
+  background-color: grey;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.mypage-side-link {
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+}
+.mypage-main {
+  width: 100%;
+  padding: 10px;
+}
+.user-information th {
+  width: 150px;
+  padding-left: 10px;
+  background-color: #dcdcdc;
+  border-right: solid 5px grey;
+}
+.tabel-title,
+.tabel-title_bottom {
+  width: 150px;
+  padding: 10px;
+  background-color: #fff;
+}
+.tabel-title {
+  border-bottom: dotted 1px grey;
+}
+.tabel-data,
+.tabel-data_bottom {
+  width: 400px;
+  padding: 10px;
+  background-color: #fff;
+}
+.tabel-data {
+  border-bottom: dotted 1px grey;
+}
+.user-information td img {
+  height: 200px;
+}

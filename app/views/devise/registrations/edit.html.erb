@@ -1,43 +1,54 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<body>
+  <div class="user">
+    <div class="user-title">
+      <h2>ユーザー情報編集</h2>
+    </div>
+    <div class="user-main">
+      <%= form_with model: @user, url:user_registration_path, method: :put, class:"user-forms", local: true do |f| %>
+      <%= render "shared/error_messages", model: @user %>
+      <table class="user-edit-table">
+        <tr>
+          <th>アイコン画像</th>
+          <td><%= f.file_field :user_image, id:"user-image" %>
+            <div id="user-image-list"></div>
+            <%= image_tag @user.user_image, id: 'user-image', class:"user-image-registered" %>
+          </td>
+        </tr>
+        <tr>
+          <th>姓</th>
+          <td><%= f.text_area :family_name, class:"user-text", id:"family_name" %>
+          </td>
+        </tr>
+        <tr>
+          <th>名</th>
+          <td><%= f.text_area :first_name, class:"user-text", id:"first-name" %>
+          </td>
+        </tr>
+        <tr>
+          <th>姓(カナ)</th>
+          <td><%= f.text_area :family_name_kana, class:"user-text", id:"family_name_kana" %>
+          </td>
+        </tr>
+        <tr>
+          <th>名(カナ)</th>
+          <td><%= f.text_area :first_name_kana, class:"user-text", id:"first_name_kana" %>
+          </td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= f.email_field :email, autofocus: true, class:"user-form", autocomplete: "email" %>
+          </td>
+        </tr>
+        <tr>
+          <th>権限 </th>
+          <td><%= f.collection_select :administrator_id, Administrator.all, :id, :name %>
+          </td>
+        </tr>
+      </table>
+      <div class="actions">
+        <%= f.submit "編集", class:"user-button" %>
+      </div>
+      <% end %>
+    </div>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</body>
