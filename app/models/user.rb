@@ -20,6 +20,6 @@ class User < ApplicationRecord
     validates :administrator_id, numericality: { other_than: 0, message: 'を選択してください'}
   end
 
-  validates_format_of :password, with: /([0-9].*[a-zA-Z]|[a-zA-Z].*[0-9])/, message: 'は半角英語・数字を両方用いて入力して下さい'
+  validates_format_of :password, with: /([0-9].*[a-zA-Z]|[a-zA-Z].*[0-9])/, on: :create, message: 'は半角英語・数字を両方用いて入力して下さい'
   
 end
