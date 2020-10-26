@@ -6,6 +6,7 @@ ja:
       first_name: 名
       family_name_kana: 姓（カナ）
       first_name_kana: 名（カナ）
+      email: メールアドレス
       administrator_id: 権限
       user_image: アイコン画像
 
