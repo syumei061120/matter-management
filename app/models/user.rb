@@ -14,7 +14,7 @@ class User < ApplicationRecord
   
   with_options presence: true do
     validates :family_name, format: { with: name_validation, message: 'は全角日本語で入力してください' }
-    validates :first_name, format: { with: name_validation, message: 'は全角日本語で入力してください.' }
+    validates :first_name, format: { with: name_validation, message: 'は全角日本語で入力してください' }
     validates :family_name_kana, format: { with: name_kana_validation, message: 'は全角カタカナで入力してください' }
     validates :first_name_kana, format: { with: name_kana_validation, message: 'は全角カタカナで入力してください' }
     validates :administrator_id, numericality: { other_than: 0, message: 'を選択してください'}
