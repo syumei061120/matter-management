@@ -7,8 +7,7 @@ FactoryBot.define do
     first_name_kana {gimei.last.katakana}
     email {Faker::Internet.free_email}
 
-    password = Faker::Internet.password(min_length: 6)
-    password {password}
+    password {"pass1234"}
     password_confirmation {password}
 
     administrator_id { Faker::Number.between(from: 1, to: 2) }
