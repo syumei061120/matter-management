@@ -18,6 +18,7 @@ class User < ApplicationRecord
     validates :family_name_kana, format: { with: name_kana_validation, message: 'は全角カタカナで入力してください' }
     validates :first_name_kana, format: { with: name_kana_validation, message: 'は全角カタカナで入力してください' }
     validates :administrator_id, numericality: { other_than: 0, message: 'を選択してください'}
+    validates :user_image
   end
 
   validates_format_of :password, with: /([0-9].*[a-zA-Z]|[a-zA-Z].*[0-9])/, on: :create, message: 'は半角英語・数字を両方用いて入力して下さい'
