@@ -83,9 +83,9 @@
 
 | Column                | Type       | Options                         |
 | --------------------- | ---------- | ------------------------------- |
-| client_company        | string     | null: false                     |
-| client_department     | string     | null: false                     |
-| client_name           | string     | null: false                     |
+| company               | string     | null: false                     |
+| department            | string     | null: false                     |
+| name                  | string     | null: false                     |
 
 ### Association
 
