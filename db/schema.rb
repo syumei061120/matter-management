@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_073712) do
+ActiveRecord::Schema.define(version: 2020_10_26_074148) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2020_10_26_073712) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "matter_clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "matter_id"
+    t.bigint "client_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_matter_clients_on_client_id"
+    t.index ["matter_id"], name: "index_matter_clients_on_matter_id"
+  end
+
   create_table "matters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "sales_staff_id", null: false
@@ -63,8 +72,8 @@ ActiveRecord::Schema.define(version: 2020_10_26_073712) do
   end
 
   create_table "sales_staffs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "sales_department", null: false
-    t.string "sales_staff", null: false
+    t.string "department", null: false
+    t.string "staff", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -87,5 +96,7 @@ ActiveRecord::Schema.define(version: 2020_10_26_073712) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "matter_clients", "clients"
+  add_foreign_key "matter_clients", "matters"
   add_foreign_key "matters", "users"
 end

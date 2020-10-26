@@ -60,8 +60,8 @@
 
 | Column                | Type       | Options                         |
 | --------------------- | ---------- | ------------------------------- |
-| sales_department      | string     | null: false                     |
-| sales_staff           | string     | null: false                     |
+| department            | string     | null: false                     |
+| staff                 | string     | null: false                     |
 
 ### Association
 
