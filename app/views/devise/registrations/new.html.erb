@@ -1,12 +1,12 @@
 <body>
-  <div class="sign-up">
-    <div class="sign-up-title">
-      <h2>新規会員登録</h2>
+  <div class="user">
+    <div class="user-title">
+      <h2>新規利用登録</h2>
     </div>
-    <div class="sign-up-main">
-      <%= form_with model: @user, url:user_registration_path, class:"sign-up-forms", local: true do |f| %>
+    <div class="user-main">
+      <%= form_with model: @user, url:user_registration_path, class:"user-forms", local: true do |f| %>
       <%= render "shared/error_messages", model: @user %>
-      <table class="sign-up-table">
+      <table class="user-table">
         <tr>
           <th>アイコン画像</th>
           <td><%= f.file_field :user_image, id:"user-image" %>
@@ -15,37 +15,42 @@
         </tr>
         <tr>
           <th>姓</th>
-          <td><%= f.text_area :family_name, class:"sign-up-text", id:"family_name" %>
+          <td><%= f.text_area :family_name, class:"user-text", id:"family_name" %>
           </td>
         </tr>
         <tr>
           <th>名</th>
-          <td><%= f.text_area :first_name, class:"sign-up-text", id:"first-name" %>
+          <td><%= f.text_area :first_name, class:"user-text", id:"first-name" %>
           </td>
         </tr>
         <tr>
           <th>姓(カナ)</th>
-          <td><%= f.text_area :family_name_kana, class:"sign-up-text", id:"family_name_kana" %>
+          <td><%= f.text_area :family_name_kana, class:"user-text", id:"family_name_kana" %>
           </td>
         </tr>
         <tr>
           <th>名(カナ)</th>
-          <td><%= f.text_area :first_name_kana, class:"sign-up-text", id:"first_name_kana" %>
+          <td><%= f.text_area :first_name_kana, class:"user-text", id:"first_name_kana" %>
           </td>
         </tr>
         <tr>
           <th>メールアドレス</th>
-          <td><%= f.email_field :email, autofocus: true, class:"sign-up-form", autocomplete: "email" %>
+          <td><%= f.email_field :email, autofocus: true, class:"user-form", autocomplete: "email" %>
           </td>
         </tr>
         <tr>
-          <th>パスワード </th>
-          <td><%= f.password_field :password, class:"sign-up-form" %>
+          <th>パスワード <br>
+            <p class="user-password-explain">
+              半角英語・数字を両方用いて<br>
+              6文字以上で設定して下さい
+            </p>
+          </th>
+          <td><%= f.password_field :password, class:"user-form" %>
           </td>
         </tr>
         <tr>
           <th>パスワード(確認用) </th>
-          <td><%= f.password_field :password_confirmation, class:"sign-up-form" %>
+          <td><%= f.password_field :password_confirmation, class:"user-form" %>
           </td>
         </tr>
         <tr>
@@ -54,10 +59,10 @@
           </td>
         </tr>
       </table>
-      <div><%= f.submit "新規登録" ,class:"sign-up-button" %>
+      <div><%= f.submit "新規登録" ,class:"user-button" %>
       </div>
-
       <% end %>
+      <p><%= link_to "＞＞ログインはこちら", new_user_session_path %>
     </div>
   </div>
 </body>

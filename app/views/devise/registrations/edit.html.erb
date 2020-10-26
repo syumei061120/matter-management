@@ -1,10 +1,10 @@
 <body>
-  <div class="user-edit">
-    <div class="user-edit-title">
+  <div class="user">
+    <div class="user-title">
       <h2>ユーザー情報編集</h2>
     </div>
-    <div class="user-edit-main">
-      <%= form_with model: @user, url:user_registration_path, method: :put, class:"sign-up-forms", local: true do |f| %>
+    <div class="user-main">
+      <%= form_with model: @user, url:user_registration_path, method: :put, class:"user-forms", local: true do |f| %>
       <%= render "shared/error_messages", model: @user %>
       <table class="user-edit-table">
         <tr>
@@ -16,27 +16,27 @@
         </tr>
         <tr>
           <th>姓</th>
-          <td><%= f.text_area :family_name, class:"edit-text", id:"family_name" %>
+          <td><%= f.text_area :family_name, class:"user-text", id:"family_name" %>
           </td>
         </tr>
         <tr>
           <th>名</th>
-          <td><%= f.text_area :first_name, class:"edit-text", id:"first-name" %>
+          <td><%= f.text_area :first_name, class:"user-text", id:"first-name" %>
           </td>
         </tr>
         <tr>
           <th>姓(カナ)</th>
-          <td><%= f.text_area :family_name_kana, class:"edit-text", id:"family_name_kana" %>
+          <td><%= f.text_area :family_name_kana, class:"user-text", id:"family_name_kana" %>
           </td>
         </tr>
         <tr>
           <th>名(カナ)</th>
-          <td><%= f.text_area :first_name_kana, class:"edit-text", id:"first_name_kana" %>
+          <td><%= f.text_area :first_name_kana, class:"user-text", id:"first_name_kana" %>
           </td>
         </tr>
         <tr>
           <th>メールアドレス</th>
-          <td><%= f.email_field :email, autofocus: true, class:"edit-form", autocomplete: "email" %>
+          <td><%= f.email_field :email, autofocus: true, class:"user-form", autocomplete: "email" %>
           </td>
         </tr>
         <tr>
@@ -46,7 +46,7 @@
         </tr>
       </table>
       <div class="actions">
-        <%= f.submit "編集", class:"edit-button" %>
+        <%= f.submit "編集", class:"user-button" %>
       </div>
       <% end %>
     </div>
