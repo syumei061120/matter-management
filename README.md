@@ -22,17 +22,17 @@
 | user                  | references | null: false, foreign_key: true  |
 | sales_staff           | references | null: false, foreign_key: true  |
 | matter_name           | string     | null: false                     |
-| matter_explain        | string     |                                 |
+| matter_explain        | text       |                                 |
 | product               | string     | null: false                     |
 | sale_price            | int        |                                 |
 | profit_price          | int        |                                 |
-| sale_time             | int        |                                 |
+| sale_time             | date       |                                 |
 | priority_id           | int        | null: false                     |
 | reliability_id        | int        | null: false                     |
 | progress_id           | int        | null: false                     |
 | occasion              | string     | null: false                     |
 | staff_in_charge       | string     | null: false                     |
-| is_edited             | int        | null: false                     |
+| is_edited             | boolean    | null: false                     |
 
 ### Association
 
@@ -60,8 +60,8 @@
 
 | Column                | Type       | Options                         |
 | --------------------- | ---------- | ------------------------------- |
-| sales_department      | string     | null: false                     |
-| sales_staff           | string     | null: false                     |
+| department            | string     | null: false                     |
+| staff                 | string     | null: false                     |
 
 ### Association
 
@@ -83,9 +83,9 @@
 
 | Column                | Type       | Options                         |
 | --------------------- | ---------- | ------------------------------- |
-| client_company        | string     | null: false                     |
-| client_department     | string     | null: false                     |
-| client_name           | string     | null: false                     |
+| company               | string     | null: false                     |
+| department            | string     | null: false                     |
+| name                  | string     | null: false                     |
 
 ### Association
 

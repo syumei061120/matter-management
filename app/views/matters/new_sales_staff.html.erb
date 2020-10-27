@@ -1,0 +1,26 @@
+<body>
+  <div class='matter'>
+    <div class='matter-title'>
+      <h2>営業スタッフの情報を入力してください</h2>
+    </div>
+    <div class="matter-main">
+      <%= form_with model: @sales_staff, url:sales_staff_path, class:"matter-forms", local: true do |f|  %>
+      <%= render "shared/error_messages", model: @sales_staff %>
+      <table class="matter-table">
+        <tr class="matter-table-row-middle">
+          <th>部署・役職</th>
+          <td><%= f.text_area :department, class:"matter-text-area-middle", id:"sales-department" %>
+          </td>
+        </tr>
+        <tr class="matter-table-row-low">
+          <th>担当者</th>
+          <td><%= f.text_area :staff, class:"matter-text-field", id:"staff-name" %>
+          </td>
+        </tr>
+      </table>
+      <div><%= f.submit "登録" ,class:"user-button" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</body>

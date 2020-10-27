@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :user_image
+  has_many :matter
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :administrator

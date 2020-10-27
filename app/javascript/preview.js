@@ -1,5 +1,5 @@
-    if (document.URL.match(/sign_up/) || (/user$/) || (/edit$/)) {
-      document.addEventListener('DOMContentLoaded', function(){
+if (document.URL.match(/sign_up/) || (/user$/) || (/edit$/)) {
+  document.addEventListener('DOMContentLoaded', function(){
     const UserImageList = document.getElementById('user-image-list');
 
     const createImageHTML = (blob) => {
@@ -25,6 +25,6 @@
       const blob = window.URL.createObjectURL(file);
  
       createImageHTML(blob);
-      });
     });
-  }
+  });
+}
