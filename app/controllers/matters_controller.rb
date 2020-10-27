@@ -49,7 +49,7 @@ class MattersController < ApplicationController
 
   private
   def matter_params
-    params.require(:matter).permit(:matter_name, :matter_explain, :product, :sale_price, :profit_price, :sale_time, :priority_id, :reliability_id, :progress_id, :occation, :staff_in_charge, :is_edited).merge(user_id: current_user.id)
+    params.require(:matter).permit(:matter_name, :matter_explain, :product, :sale_price, :profit_price, :sale_time, :priority_id, :reliability_id, :progress_id, :occasion, :staff_in_charge, :is_edited).merge(user_id: current_user.id)
   end
   def client_params
     params.require(:client).permit(:company, :department, :name)
