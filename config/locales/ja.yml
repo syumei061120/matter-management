@@ -9,4 +9,15 @@ ja:
       email: メールアドレス
       administrator_id: 権限
       user_image: アイコン画像
-
+    matter:
+      matter_name: 案件名
+      matter_explain: 案件詳細
+      product: 商材名
+      sale_price: 販売金額見込み
+      profit_price: 利益見込み
+      sale_time: 販売見込み
+      priority_id: 重点度
+      reliability_id: 確度
+      progress_id: 進捗
+      occasion: きっかけ
+      staff_in_charge: 担当者
