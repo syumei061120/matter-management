@@ -1,74 +1,94 @@
-<div class='new-matter'>
-  <div class='new-matter-main'>
-    <h2>新規案件を登録してください</h2>
-      <%= form_with model: @matter, url:matters_path, local: true do |f|  %>
-      <div> 
-        案件名
-        <%= f.text_area :matter_name, class:"items-text", id:"item-name" %>
-      </div>
+<body>
+  <div class='matter'>
+    <div class='matter-title'>
+      <h2>新規案件を登録してください</h2>
+    </div>
+    <div class="matter-main">
+      <%= form_with model: @matter, url:matters_path, class:"matter-forms", local: true do |f|  %>
+      <%= render "shared/error_messages", model: @matter %>
+      <table class="matter-table">
+        <tr class="matter-table-row-low">
+          <th>案件名
+            <span class="hissu">必須</span>
+          </th>
+          <td><%= f.text_field :matter_name, class:"matter-text-field", id:"matter-name" %>
+          </td>
+        </tr>
+        <tr class="matter-table-row-high">
+          <th>案件詳細</th>
+          <td>
+            <%= f.text_area :matter_explain, class:"matter-text-area-high", id:"matter-explain" %>
+          </td>
+        </tr>
+        <tr class="matter-table-row-low">
+          <th>商材名
+            <span class="hissu">必須</span>
+          </th>
+          <td>
+            <%= f.text_field :product, class:"matter-text-field", id:"product" %>
+          </td>
+        </tr>
+        <tr class="matter-table-row-low">
+          <th>販売金額見込み</th>
+          <td><%= f.text_field :sale_price, class:"matter-text-field", id:"sale-price" %>
+          </td>
+        </tr>
+        <tr class="matter-table-row-low">
+          <th>利益見込み</th>
+          <td><%= f.text_field :profit_price, class:"matter-text-field", id:"profit-price" %>
+          </td>
+        </tr>
+        <tr class="matter-table-row-low">
+          <th>販売時期見込み</th>
+          <td>
+            <%= f.date_select :sale_time, {discard_day: true}, class:"matter-date", id:"sale-time" %>
+          </td>
+        </tr>
+        <tr class="matter-table-row-low">
+          <th>重点度
+            <span class="hissu">必須</span>
+          </th>
+          <td>
+            <%= f.collection_select :priority_id, Priority.all, :id, :name %>
+          </td>
+        </tr>
+        <tr class="matter-table-row-low">
+          <th>確度
+            <span class="hissu">必須</span>
+          </th>
+          <td>
+            <%= f.collection_select :reliability_id, Reliability.all, :id, :name %>
+          </td>
+        </tr>
+        <tr class="matter-table-row-low">
+          <th>進捗
+            <span class="hissu">必須</span>
+          </th>
+          <td>
+            <%= f.collection_select :progress_id, Progress.all, :id, :name %>
+          </td>
+        </tr>
+        <tr class="matter-table-row-low">
+          <th>きっかけ
+            <span class="hissu">必須</span>
+          </th>
+          <td>
+            <%= f.text_field :occasion, class:"matter-text-field", id:"occasion" %>
+          </td>
+        </tr>
+        <tr class="matter-table-row-low">
+          <th>担当者
+            <span class="hissu">必須</span>
+          </th>
+          <td>
+            <%= f.text_field :staff_in_charge, value:"#{current_user.family_name} #{current_user.first_name}", class:"matter-text-field", id:"occation" %>
+          </td>
+        </tr>
+      </table>
       <div>
-        案件詳細
-        <%= f.text_area :matter_explain, class:"items-text", id:"item-name" %>
+        <%= f.submit "顧客情報登録へ",class:"matter-button"%>
       </div>
-      <div>
-        商材名
-        <%= f.text_area :product, class:"items-text", id:"item-name" %>
-      </div>
-      <div>
-        販売金額見込み
-        <%= f.text_area :sale_price, class:"items-text", id:"item-name" %>
-      </div>
-      <div>
-        利益見込み
-        <%= f.text_area :profit_price, class:"items-text", id:"item-name" %>
-      </div>
-      <div>
-        販売時期見込み
-        <%= f.text_area :sale_time, class:"items-text", id:"item-name" %>
-      </div>
-      <div>
-        重点度
-        <%= f.text_area :priority, class:"items-text", id:"item-name" %>
-      </div>
-      <div>
-        確度
-        <%= f.text_area :sale_time, class:"items-text", id:"item-name" %>
-      </div>
-      <div>
-        進捗
-        <%= f.text_area :sale_time, class:"items-text", id:"item-name" %>
-      </div>
-      <div>
-        きっかけ
-        <%= f.text_area :sale_time, class:"items-text", id:"item-name" %>
-      </div>
-      <div>
-        顧客情報（会社名）
-        <%= f.text_area :client_company, class:"items-text", id:"item-name" %>
-      </div>
-      <div>
-        顧客情報（部署・役職）
-        <%= f.text_area :client_department, class:"items-text", id:"item-name" %>
-      </div>
-      <div>
-        顧客情報（名前）
-        <%= f.text_area :client_name, class:"items-text", id:"item-name" %>
-      </div>
-      <div>
-        担当営業部門
-        <%= f.text_area :sales_department, class:"items-text", id:"item-name" %>
-      </div>
-      <div>
-        担当営業
-        <%= f.text_area :sales_staff, class:"items-text", id:"item-name" %>
-      </div>
-      <div>
-        担当SE
-        <%= f.text_area :staff_in_charge, class:"items-text", id:"item-name" %>
-      </div>
-      <div>
-       <%= f.submit%>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+</body>
