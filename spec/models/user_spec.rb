@@ -5,6 +5,7 @@ RSpec.describe User, type: :model do
     before do
       @user = FactoryBot.build(:user)
     end
+
     # 登録成功
     it "全ての情報が存在すれば登録できること" do
       expect(@user).to be_valid
@@ -135,6 +136,5 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("アイコン画像を設定してください")
     end
-
   end
 end
