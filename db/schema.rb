@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2020_10_26_074148) do
     t.integer "priority_id", null: false
     t.integer "reliability_id", null: false
     t.integer "progress_id", null: false
-    t.string "occation", null: false
+    t.string "occasion", null: false
     t.string "staff_in_charge", null: false
     t.boolean "is_edited", default: false, null: false
     t.datetime "created_at", precision: 6, null: false

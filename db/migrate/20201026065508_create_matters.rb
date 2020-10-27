@@ -12,7 +12,7 @@ class CreateMatters < ActiveRecord::Migration[6.0]
       t.integer    :priority_id,     null: false
       t.integer    :reliability_id,  null: false
       t.integer    :progress_id,     null: false
-      t.string     :occation,        null: false
+      t.string     :occasion,        null: false
       t.string     :staff_in_charge, null: false
       t.boolean    :is_edited,       null: false, default: false
       t.timestamps
