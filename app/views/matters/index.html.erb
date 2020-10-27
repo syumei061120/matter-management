@@ -7,13 +7,25 @@
         <h3 class='summary-title'>2020年度</h3>
         <table class='price-summary'>
           <tr>
-            <th></th><th>1Q</th><th>2Q</th><th>3Q</th><th>4Q</th>
+            <th></th>
+            <th>1Q</th>
+            <th>2Q</th>
+            <th>3Q</th>
+            <th>4Q</th>
           </tr>
           <tr>
-            <td>販売(千円)</td><td>1,000</td><td>2,000</td><td>3,000</td><td>4,000</td>
+            <td>販売(千円)</td>
+            <td>1,000</td>
+            <td>2,000</td>
+            <td>3,000</td>
+            <td>4,000</td>
           </tr>
           <tr>
-            <td>利益(千円)</td><td>500</td><td>21,000</td><td>2,000</td><td>2,000</td>
+            <td>利益(千円)</td>
+            <td>500</td>
+            <td>21,000</td>
+            <td>2,000</td>
+            <td>2,000</td>
           </tr>
         </table>
       </div>
@@ -21,16 +33,23 @@
         <h3 class='summary-title'>案件一覧</h3>
         <table class='price-summary'>
           <tr>
-            <th></th><th colspan="2">2020</th>
+            <th></th>
+            <th colspan="2">2020</th>
           </tr>
           <tr>
-            <th></th><th>案件数</th><th>合計販売額(千円)</th>
+            <th></th>
+            <th>案件数</th>
+            <th>合計販売額(千円)</th>
           </tr>
           <tr>
-            <td>Aランク</td><td>3</td><td>21,000</td>
+            <td>Aランク</td>
+            <td>3</td>
+            <td>21,000</td>
           </tr>
           <tr>
-            <td>Bランク</td><td>3</td><td>21,000</td>
+            <td>Bランク</td>
+            <td>3</td>
+            <td>21,000</td>
           </tr>
         </table>
       </div>
@@ -39,15 +58,15 @@
   <div class='edited-matters'>
     <h2 class='title'> 更新案件リスト</h2>
     <ul class='matter-lists'>
-      <% 9.times.each do %>
-        <li class='list'>
-            更新日：2020/1/1
-            顔写真  担当者：山田太郎<br>
-            案件名：〇〇〇<br>
-            販売金額：1,500千円<br>
-            契約確度：A<br>
-        </li>
-      <% end %>
+      <% @matters.each do |matter|%>
+      <li class='list'>
+        <%= @matter.matter_name%>
+        <% @matter.matter_clients.each do |matter_client|%> %>
+        <%= matter_client.client.company%>
+        <%end%> %>
+        <%= @matter.sales_staff.staff%>
+      </li>
+
     </ul>
   </div>
 </div>
