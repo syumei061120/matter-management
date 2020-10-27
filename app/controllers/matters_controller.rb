@@ -1,6 +1,6 @@
 class MattersController < ApplicationController
   def index
-    @matter = Matter.new
+    @matters = Matter.all
   end
 
   def new

@@ -60,13 +60,13 @@
     <ul class='matter-lists'>
       <% @matters.each do |matter|%>
       <li class='list'>
-        <%= @matter.matter_name%>
-        <% @matter.matter_clients.each do |matter_client|%> %>
+        <%= matter.matter_name%>
+        <% matter.matter_clients.each do |matter_client|%> %>
         <%= matter_client.client.company%>
-        <%end%> %>
-        <%= @matter.sales_staff.staff%>
+        <%end%>
+        <%= matter.sales_staff.staff%>
       </li>
-
+      <%end%>
     </ul>
   </div>
 </div>
