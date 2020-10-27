@@ -13,8 +13,7 @@ class Matter < ApplicationRecord
     validates :occasion
     validates :staff_in_charge
   end
-
-  validates :is_edited, default:false
+  
   validates :sale_price, numericality: { only_integer: true }, allow_blank: true
   validates :profit_price, numericality: { only_integer: true }, allow_blank: true
 
