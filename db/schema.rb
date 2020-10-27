@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_10_26_074148) do
 
   create_table "matters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "sales_staff_id", null: false
+    t.bigint "sales_staff_id"
     t.string "matter_name", null: false
     t.text "matter_explain"
     t.string "product", null: false
@@ -98,5 +98,6 @@ ActiveRecord::Schema.define(version: 2020_10_26_074148) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "matter_clients", "clients"
   add_foreign_key "matter_clients", "matters"
+  add_foreign_key "matters", "sales_staffs"
   add_foreign_key "matters", "users"
 end
