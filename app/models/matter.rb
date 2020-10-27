@@ -7,14 +7,13 @@ class Matter < ApplicationRecord
   with_options presence: true do
     validates :matter_name
     validates :product
-    validates :priority_id, numericality: { other_than: 0, message: 'を選択してください'}
-    validates :reliability_id, numericality: { other_than: 0, message: 'を選択してください'}
-    validates :progress_id, numericality: { other_than: 0, message: 'を選択してください'}
+    validates :priority_id, numericality: { other_than: 0, message: 'を選択してください' }
+    validates :reliability_id, numericality: { other_than: 0, message: 'を選択してください' }
+    validates :progress_id, numericality: { other_than: 0, message: 'を選択してください' }
     validates :occasion
     validates :staff_in_charge
   end
-  
+
   validates :sale_price, numericality: { only_integer: true }, allow_blank: true
   validates :profit_price, numericality: { only_integer: true }, allow_blank: true
-
 end
