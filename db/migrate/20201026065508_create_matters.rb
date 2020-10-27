@@ -2,7 +2,7 @@ class CreateMatters < ActiveRecord::Migration[6.0]
   def change
     create_table :matters do |t|
       t.references :user,            foreign_key: true
-      t.references :sales_staff,     null: false
+      t.references :sales_staff,     foreign_key: true
       t.string     :matter_name,     null: false
       t.text       :matter_explain
       t.string     :product,         null: false
