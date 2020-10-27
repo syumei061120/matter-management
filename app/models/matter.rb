@@ -10,7 +10,7 @@ class Matter < ApplicationRecord
     validates :priority_id
     validates :reliability_id
     validates :progress_id
-    validates :occation
+    validates :occasion
     validates :staff_in_charge
   end
   validates :is_edited, default:false
