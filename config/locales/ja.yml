@@ -28,3 +28,7 @@ ja:
     sales_staff:
       department: 部署・役職
       staff: 営業スタッフ
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
