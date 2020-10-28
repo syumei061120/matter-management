@@ -29,17 +29,19 @@
           </td>
         </tr>
         <tr class="matter-table-row-low">
-          <th>販売金額見込み</th>
+          <th>販売金額見込み(千円)</th>
           <td><%= f.text_field :sale_price, class:"matter-text-field", id:"sale-price" %>
           </td>
         </tr>
         <tr class="matter-table-row-low">
-          <th>利益見込み</th>
+          <th>利益見込み(千円)</th>
           <td><%= f.text_field :profit_price, class:"matter-text-field", id:"profit-price" %>
           </td>
         </tr>
         <tr class="matter-table-row-low">
-          <th>販売時期見込み</th>
+          <th>販売時期見込み
+            <span class="hissu">必須</span>
+          </th>
           <td>
             <%= f.date_select :sale_time, {discard_day: true}, class:"matter-date", id:"sale-time" %>
           </td>
