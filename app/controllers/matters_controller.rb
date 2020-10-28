@@ -1,6 +1,6 @@
 class MattersController < ApplicationController
   def index
-    @matters = Matter.all
+    @matters = Matter.all.order(created_at: "DESC")
   end
 
   def new

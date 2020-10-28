@@ -1,72 +1,55 @@
-.main{
-  background-color: blue;
-  padding: 10px 30px;
-  display: flex;
-}
-
-.matter-summary{
-  width: 500px;
-  background-color: red;
-  padding: 10px 30px;
-  margin-right: 30px;
-}
-.matter-summary>.title {
-  font-size: 20px;
-  font-weight: bolder;
-  margin: 10px;
-}
-.summary-box{
-  padding-bottom: 10px;
-}
-
-.summary-title{
-  font-size: 15px;
-  font-weight: bolder;
-  margin: 10px 0 0 20px;
-}
-.summary-main{
-  background-color: blueviolet;
-  justify-content: space-between;
-}
-
-.price-summary{
-  border-collapse: collapse;
-  width: 400px;
-  font-size: 12px;
-  margin: 10px;
-  text-align: center;
-}
-.price-summary th{
-  color: black;
-  background-color: lightgray;
-  padding: 10px;
-}
-.price-summary td{
-  color: black;
-  background-color: #F5F5F5;
-  padding: 10px;
-  border-bottom: 1px dotted lightgray;
-}
-.edited-matters{
-  background-color: green;
-  padding: 10px 30px;
-}
-.edited-matters>.title {
-  font-size: 20px;
-  font-weight: bolder;
-  margin: 10px;
-}
-.matter-lists{
+.top-main {
+  height: 100%;
+  min-height: 100vh;
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  background-color: rgb(230, 238, 243);
 }
 
-.matter-lists>.list{
-  width:15vw;
+.matter-lists {
+  max-width: 1300px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 20px 0 0 45px;
+}
+
+.matter-list {
+  width: 260px;
+  border-top: solid 15px blue;
+  background-color: rgb(213, 223, 244);
+  border-radius: 5px;
   padding: 10px;
-  margin-bottom: 20px;
-  background-color: #fff;
-  border: solid 2px black;
+  margin: 0 45px 20px 0;
+  font-size: 14px;
+}
+
+.matter-list-table th {
+  width: 80px;
+  padding: 10px;
+  border-bottom: solid 0.5px rgb(207, 206, 206);
+  font-weight: 600;
+}
+
+.matter-list-table td {
+  width: 160px;
+  padding: 10px;
+  border-bottom: solid 0.5px rgb(207, 206, 206);
+}
+
+.matter-link {
+  color: blue;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.price-unit {
+  font-size: 10px;
+}
+
+.matter-create-time {
+  font-size: 10px;
+  text-align: right;
+  margin-top: 10px;
 }

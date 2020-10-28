@@ -1,73 +1,49 @@
 <%= render "shared/header" %>
-<div class='main'>
-  <div class='matter-summary'>
-    <h2 class='title'> 案件のサマリー</h2>
-    <div class='summary-main'>
-      <div class="summary-box">
-        <h3 class='summary-title'>2020年度</h3>
-        <table class='price-summary'>
-          <tr>
-            <th></th>
-            <th>1Q</th>
-            <th>2Q</th>
-            <th>3Q</th>
-            <th>4Q</th>
-          </tr>
-          <tr>
-            <td>販売(千円)</td>
-            <td>1,000</td>
-            <td>2,000</td>
-            <td>3,000</td>
-            <td>4,000</td>
-          </tr>
-          <tr>
-            <td>利益(千円)</td>
-            <td>500</td>
-            <td>21,000</td>
-            <td>2,000</td>
-            <td>2,000</td>
-          </tr>
-        </table>
-      </div>
-      <div class="summary-box">
-        <h3 class='summary-title'>案件一覧</h3>
-        <table class='price-summary'>
-          <tr>
-            <th></th>
-            <th colspan="2">2020</th>
-          </tr>
-          <tr>
-            <th></th>
-            <th>案件数</th>
-            <th>合計販売額(千円)</th>
-          </tr>
-          <tr>
-            <td>Aランク</td>
-            <td>3</td>
-            <td>21,000</td>
-          </tr>
-          <tr>
-            <td>Bランク</td>
-            <td>3</td>
-            <td>21,000</td>
-          </tr>
-        </table>
+<div class="top-main">
+  <div class="matter-lists">
+    <% @matters.each do |matter| %>
+    <div class="matter-list">
+      <table class="matter-list-table">
+        <tr>
+          <th>
+            <%= image_tag current_user.user_image, class:"user-icon" %>
+          </th>
+          <td>
+            <%= link_to "#{matter.matter_name}" ,matter_path(matter.id), class: "matter-link" %>
+          </td>
+        </tr>
+        <tr>
+          <th>売金額 <span class="price-unit">(千円)</span>
+          </th>
+          <td><% if matter.sale_price.present? %>
+            <%= "¥#{matter.sale_price.to_s(:delimited, delimiter: ',')}" %>
+            <% else %>
+            未定
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>重点度</th>
+          <td><%= matter.priority.name %>
+          </td>
+        </tr>
+        <tr>
+          <th>進捗</th>
+          <td><%= matter.progress.name %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>きっかけ</th>
+          <td><%= matter.occasion %>
+          </td>
+        </tr>
+      </table>
+      <div class="matter-create-time">
+        <%= "#{matter.updated_at.strftime("%Y-%m-%d %H:%M")}更新" %>
       </div>
     </div>
-  </div>
-  <div class='edited-matters'>
-    <h2 class='title'> 更新案件リスト</h2>
-    <ul class='matter-lists'>
-      <% @matters.each do |matter|%>
-      <li class='list'>
-        <%= matter.matter_name%>
-        <% matter.matter_clients.each do |matter_client|%> %>
-        <%= matter_client.client.company%>
-        <%end%>
-        <%= matter.sales_staff.staff%>
-      </li>
-      <%end%>
-    </ul>
+    <%end%>
   </div>
 </div>
 <%= render "shared/footer" %>
