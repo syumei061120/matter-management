@@ -49,6 +49,13 @@ RSpec.describe Matter, type: :model do
       expect(@matter.errors.full_messages).to include('利益見込みは数値で入力してください')
     end
 
+    # 販売見込み時期が入力できていない
+    it 'sale_timeが空では登録できないこと' do
+      @matter.sale_time = nil
+      @matter.valid?
+      expect(@matter.errors.full_messages).to include('販売見込みを入力してください')
+    end
+
     # 重点度が正しく入力できていない
     it 'priority_idが空では登録できないこと' do
       @matter.priority_id = nil
