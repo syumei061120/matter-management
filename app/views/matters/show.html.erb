@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 <div class="matter-information">
-  <%= render "shared/matter_information_side" %>
+  <%= render partial:"shared/matter_information_side" , locals: { matter: @matter }%>
   <div class="left-side">
     <h2><%= @matter.matter_name %></h2>
     <table class="matter-information-table">

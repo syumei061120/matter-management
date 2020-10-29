@@ -1,0 +1,15 @@
+<body>
+  <div class='matter'>
+    <div class='matter-title'>
+      <h2>担当営業の情報を編集してください</h2>
+    </div>
+    <div class="matter-main">
+      <%= form_with model: @sales_staff, url: sales_staff_path, class:"matter-forms", local: true do |f|  %>
+      <%= render partial: "shared/sales_staff_form", locals: { f: f } %>
+      <div>
+        <%= f.submit "担当営業情報編集",class:"matter-button"%>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</body>
