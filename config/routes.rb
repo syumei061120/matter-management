@@ -8,8 +8,8 @@ Rails.application.routes.draw do
       post 'clients', to: 'matters#create_client'
     end
   end
-  get 'sales_staff', to: 'matters#new_sales_staff'
-  post 'sales_staff', to: 'matters#create_sales_staff'
+  get 'sales_staffs', to: 'matters#new_sales_staff'
+  post 'sales_staffs', to: 'matters#create_sales_staff'
   resources :users, only: [:show, :edit, :update]
-
+  resources :sales_staffs, only: [:edit, :update]
 end
