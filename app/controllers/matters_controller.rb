@@ -43,6 +43,19 @@ class MattersController < ApplicationController
   def show
     @matter = Matter.find(params[:id])
   end
+
+  def edit
+    @matter = Matter.find(params[:id])
+  end
+
+  def update
+    @matter = Matter.find(params[:id])
+    if @matter.update(matter_params)
+      redirect_to matter_path(@matter)
+    else
+      render :edit
+    end
+  end
   
   def search
   end
