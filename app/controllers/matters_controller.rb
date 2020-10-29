@@ -40,6 +40,10 @@ class MattersController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @matter = Matter.find(params[:id])
+  end
+  
   def search
   end
 
