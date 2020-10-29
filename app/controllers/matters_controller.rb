@@ -1,4 +1,6 @@
 class MattersController < ApplicationController
+  before_action :matter_find, only: [:show, :edit, :update]
+
   def index
     @matters = Matter.all.order(created_at: "DESC")
   end
@@ -40,23 +42,14 @@ class MattersController < ApplicationController
     redirect_to root_path
   end
 
-  def show
-    @matter = Matter.find(params[:id])
-  end
-
-  def edit
-    @matter = Matter.find(params[:id])
-  end
-
   def update
-    @matter = Matter.find(params[:id])
     if @matter.update(matter_params)
       redirect_to matter_path(@matter)
     else
       render :edit
     end
   end
-  
+
   def search
   end
 
@@ -72,5 +65,9 @@ class MattersController < ApplicationController
 
   def sales_staff_params
     params.require(:sales_staff).permit(:department, :staff)
+  end
+
+  def matter_find
+    @matter = Matter.find(params[:id])
   end
 end
