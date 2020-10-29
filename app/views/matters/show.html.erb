@@ -1,0 +1,105 @@
+<%= render "shared/header" %>
+<div class="matter-information">
+  <%= render "shared/matter_information_side" %>
+  <div class="left-side">
+    <h2><%= @matter.matter_name %></h2>
+    <table class="matter-information-table">
+      <tr class="matter-information-table-row-high">
+        <th>案件詳細</th>
+        <td>
+          <p class="overflow"><%= @matter.matter_explain %></p>
+        </td>
+      </tr>
+      <tr class="matter-information-table-row-low">
+        <th>商材名</th>
+        <td><%= @matter.product %></td>
+      </tr>
+      <tr class="matter-information-table-row-low">
+        <th>販売金額見込み(千円)</th>
+        <td><% if @matter.sale_price.present? %>
+          <%= "¥#{@matter.sale_price.to_s(:delimited, delimiter: ',')}" %>
+          <% else %>
+          未定
+          <% end %>
+        </td>
+      </tr>
+      <tr class="matter-information-table-row-low">
+        <th>利益見込み(千円)</th>
+        <td><% if @matter.profit_price.present? %>
+          <%= "¥#{@matter.profit_price.to_s(:delimited, delimiter: ',')}" %>
+          <% else %>
+          未定
+          <% end %></td>
+      </tr>
+      <tr class="matter-information-table-row-low">
+        <th>販売見込み時期</th>
+        <td><%= @matter.sale_time %></td>
+      </tr>
+      <tr class="matter-information-table-row-low">
+        <th>重点度</th>
+        <td><%= @matter.priority.name %></td>
+      </tr>
+      <tr class="matter-information-table-row-low">
+        <th>確度</th>
+        <td><%= @matter.reliability.name %></td>
+      </tr>
+      <tr class="matter-information-table-row-low">
+        <th>進捗</th>
+        <td><%= @matter.progress.name %></td>
+      </tr>
+      <tr class="matter-information-table-row-low">
+        <th>きっかけ</th>
+        <td><%= @matter.occasion %></td>
+      </tr>
+      <tr class="matter-information-table-row-low">
+        <th>担当者</th>
+        <td><%= @matter.staff_in_charge %></td>
+      </tr>
+    </table>
+    <h2>担当営業情報</h2>
+    <table class="matter-information-table">
+      <tr class="matter-information-table-row-low">
+        <th>部署・役職</th>
+        <td><%= @matter.sales_staff.department %></td>
+      </tr>
+      <tr class="matter-information-table-row-low">
+        <th>営業スタッフ</th>
+        <td><%= @matter.sales_staff.staff %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="right-side">
+    <div class="right-side-top">
+      <h2>顧客情報</h2>
+      <% @matter.matter_clients.first(3).each do |matter_client| %>
+      <table class="client-information-table">
+        <tr class="matter-information-table-row-low">
+          <th>会社名</th>
+          <td>
+            <%= matter_client.client.company %>
+          </td>
+        </tr>
+        <tr class="matter-information-table-row-low">
+          <th>部署・役職</th>
+          <td>
+            <%= matter_client.client.department %>
+          </td>
+        </tr>
+        <tr class="matter-information-table-row-low">
+          <th>担当者</th>
+          <td>
+            <%= matter_client.client.name %>
+          </td>
+        </tr>
+      </table>
+      <%end%>
+      <div class="all-client">
+        <%= link_to "この案件の顧客情報一覧を開く", "#", class:"all-client-link" %>
+      </div>
+    </div>
+    <div class="right-side-bottom">
+      <h2>直近の商談履歴</h2>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer" %>
