@@ -1,0 +1,38 @@
+.client-information-table {
+  border: solid 2px grey;
+  margin: 10px auto;
+  width: 80%;
+  min-width: 400px;
+}
+
+.client-information-table tr {
+  border: dotted 1px grey;
+}
+
+.client-information-table th {
+  width: 200px;
+  min-width: 180px;
+  padding-left: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  vertical-align: middle;
+}
+
+.client-information-table td {
+  overflow-wrap: normal;
+}
+
+.link-td {
+  text-align: right;
+  padding-right: 5px;
+  padding-top: 3px;
+  vertical-align: middle;
+}
+
+.client-edit-link {
+  margin-right: 3px;
+}
+
+.client-edit-link img {
+  height: 20px;
+}
