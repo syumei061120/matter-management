@@ -1,0 +1,15 @@
+<body>
+  <div class='matter'>
+    <div class='matter-title'>
+      <h2>顧客情報を登録してください</h2>
+    </div>
+    <div class="matter-main">
+      <%= form_with model: @client, url:matter_clients_path, class:"matter-forms", local: true do |f|  %>
+      <%= render partial: "shared/client_form", locals: { f: f } %>
+      <div>
+        <%= f.submit "顧客情報を追加" ,class:"user-button" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</body>
