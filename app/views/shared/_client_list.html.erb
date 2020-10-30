@@ -1,0 +1,23 @@
+<table class="client-information-table">
+  <tr class="matter-information-table-row-low">
+    <th>会社名</th>
+    <td> <%= matter_client.client.company %>
+    </td>
+    <td class="link-td">
+      <%= link_to image_tag("edit-icon"), edit_matter_client_path(matter_id: @matter.id, id: matter_client.client_id), class:"client-edit-link" %>
+      <%= link_to image_tag("delete-icon"), edit_matter_client_path(matter_id: @matter.id, id: matter_client.client_id), class:"client-edit-link" %>
+    </td>
+  </tr>
+  <tr class="matter-information-table-row-low">
+    <th>部署・役職</th>
+    <td colspan="2">
+      <%= matter_client.client.department %>
+    </td>
+  </tr>
+  <tr class="matter-information-table-row-low">
+    <th>担当者</th>
+    <td colspan="2">
+      <%= matter_client.client.name %>
+    </td>
+  </tr>
+</table>
