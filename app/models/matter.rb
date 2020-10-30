@@ -6,8 +6,9 @@ class Matter < ApplicationRecord
 
   belongs_to :user, optional: true
   belongs_to :sales_staff, optional: true
-  has_many   :clients, through: :matter_clients
   has_many   :matter_clients
+  has_many   :clients, through: :matter_clients
+
 
   with_options presence: true do
     validates :matter_name
