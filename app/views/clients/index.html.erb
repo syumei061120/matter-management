@@ -1,0 +1,15 @@
+<%= render "shared/header" %>
+<div class="matter-information">
+  <%= render partial: "shared/matter_information_side", locals: { matter: @matter } %>
+  <div class="left-side">
+    <% @matter_clients.first((@matter_clients.length.to_f/2).ceil).each do |matter_client| %>
+    <%= render partial: "shared/client_list", locals: { matter_client: matter_client } %>
+    <%end%>
+  </div>
+  <div class="right-side">
+    <% @matter_clients.last((@matter_clients.length/2).floor).each do |matter_client| %>
+    <%= render partial: "shared/client_list", locals: { matter_client: matter_client } %>
+    <%end%>
+  </div>
+</div>
+<%= render "shared/footer" %>
