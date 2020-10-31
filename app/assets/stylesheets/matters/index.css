@@ -16,8 +16,8 @@
 
 .matter-list {
   width: 260px;
-  border-top: solid 15px blue;
-  background-color: rgb(213, 223, 244);
+  border-top: solid 15px #00ffff;
+  background-color: #e0ffff;
   border-radius: 5px;
   padding: 10px;
   margin: 0 45px 20px 0;
@@ -32,15 +32,14 @@
 }
 
 .matter-list-table td {
-  width: 160px;
+  width: 170px;
   padding: 10px;
   border-bottom: solid 0.5px rgb(207, 206, 206);
 }
 
 .matter-link {
-  color: blue;
-  font-size: 16px;
-  font-weight: bold;
+  color: #00CCFF;
+  font-size: 18px;
   text-decoration: none;
 }
 
