@@ -2,7 +2,7 @@ class MattersController < ApplicationController
   before_action :matter_find, only: [:show, :edit, :update]
 
   def index
-    @matters = Matter.all.order(created_at: "DESC")
+    @matters = Matter.all.order(updated_at: "DESC")
   end
 
   def new
