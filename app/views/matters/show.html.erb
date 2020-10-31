@@ -71,6 +71,9 @@
   <div class="right-side">
     <div class="right-side-top">
       <h2>顧客情報</h2>
+      <p class="client-message"><%= flash[:success] %></p>
+      <p class="client-message"><%= flash[:failure] %></p>
+
       <% @matter.matter_clients.first(3).each do |matter_client| %>
       <%= render partial: "shared/client_list", locals: { matter_client: matter_client } %>
       <%end%>
