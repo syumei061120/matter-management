@@ -5,7 +5,7 @@
     </td>
     <td class="link-td">
       <%= link_to image_tag("edit-icon"), edit_matter_client_path(matter_id: @matter.id, id: matter_client.client_id), class:"client-edit-link" %>
-      <%= link_to image_tag("delete-icon"), edit_matter_client_path(matter_id: @matter.id, id: matter_client.client_id), class:"client-edit-link" %>
+      <%= link_to image_tag("delete-icon"), matter_client_path(matter_id: @matter.id, id: matter_client.client_id), method: :delete, class:"client-edit-link" %>
     </td>
   </tr>
   <tr class="matter-information-table-row-low">
