@@ -1,0 +1,26 @@
+.client-title {
+  height: 30px;
+  width: 80%;
+  min-width: 400px;
+  margin: 0 auto 0;
+  font-size: 20px;
+}
+
+.client-information {
+  display: flex;
+}
+
+.client-left-side,
+.client-right-side {
+  width: 50%;
+  min-width: 450px;
+  height: 100%;
+}
+
+.client-left-side {
+  padding: 20px;
+}
+
+.client-right-side {
+  padding: 50px 20px 20px;
+}
