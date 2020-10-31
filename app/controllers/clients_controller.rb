@@ -15,7 +15,7 @@ class ClientsController < ApplicationController
     if @client.valid?
       @client.save
       MatterClient.create(matter_id: params[:matter_id], client_id: @client.id)
-      redirect_to matter_path(id: params[:matter_id])
+      redirect_to matter_clients_path(matter_id: params[:matter_id])
     else
       render :new
     end
@@ -23,13 +23,14 @@ class ClientsController < ApplicationController
   
   def update
     if @client.update(client_params)
-      redirect_to matter_path(id: params[:matter_id])
+      redirect_to matter_clients_path(matter_id: params[:matter_id])
     else
       render :edit
     end
   end
 
   def destroy
+    path = Rails.application.routes.recognize_path(request.referer)
     @matter_client = MatterClient.find_by(matter_id: params[:matter_id], client_id: params[:id])
     if MatterClient.where(matter_id: params[:matter_id]).count == 1 
       flash[:failure] = '顧客情報が一件のため削除できませんでした'
@@ -41,7 +42,14 @@ class ClientsController < ApplicationController
       @matter_client.destroy
       flash[:success] = '顧客情報を削除しました'
     end
-    redirect_to matter_path(id: params[:matter_id])
+
+    if path[:controller] == "matters" && path[:action] == "show"
+      redirect_to matter_path(id: params[:matter_id])
+    elsif path[:controller] == "clients" && path[:action] == "index"
+      redirect_to matter_clients_path(matter_id: params[:matter_id])
+    else
+      redirect_to root_path
+    end
   end
 
   private
