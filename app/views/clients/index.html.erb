@@ -1,0 +1,20 @@
+<%= render "shared/header" %>
+<div class="matter-information">
+  <%= render partial: "shared/matter_information_side", locals: { matter: @matter } %>
+  <div class="client-left-side">
+    <h2 class="client-title">
+      <%= "#{@matter.matter_name}の顧客情報" %>
+    </h2>
+    <p class="client-message"><%= flash[:success] %></p>
+    <p class="client-message"><%= flash[:failure] %></p>
+    <% @matter_clients.first((@matter_clients.length.to_f/2).ceil).each do |matter_client| %>
+    <%= render partial: "shared/client_list", locals: { matter_client: matter_client } %>
+    <%end%>
+  </div>
+  <div class="client-right-side">
+    <% @matter_clients.last((@matter_clients.length/2).floor).each do |matter_client| %>
+    <%= render partial: "shared/client_list", locals: { matter_client: matter_client } %>
+    <%end%>
+  </div>
+</div>
+<%= render "shared/footer" %>

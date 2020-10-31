@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: "matters#index"
   resources :matters do
+      resources :clients, except: [:show]
     collection do
       get 'search'
       get 'clients', to: 'matters#new_client'
