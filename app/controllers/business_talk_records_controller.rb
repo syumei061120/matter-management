@@ -1,0 +1,2 @@
+class BusinessTalkRecordsController < ApplicationController
+end
