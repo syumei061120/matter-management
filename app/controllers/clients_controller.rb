@@ -1,9 +1,10 @@
 class ClientsController < ApplicationController
-    before_action :matter_find, only: [:index, :create, :edit, :update]
+    before_action :matter_find, only: [:index, :edit, :update]
     before_action :client_find, only: [:edit, :update, :destroy]
-    before_action :matter_client_find, only: [:update, :destroy]
+    before_action :client_first, only: [:create, :update]
+    before_action :matter_client_find, only: [:create, :update]
 
-    def index
+  def index
     @matter_clients = MatterClient.where(matter_id: params[:matter_id])
   end
 
@@ -13,35 +14,39 @@ class ClientsController < ApplicationController
 
   def create
     @client = Client.new(client_params)
-    if @client.valid?
-      @client.save
-      MatterClient.create(matter_id: params[:matter_id], client_id: @client.id)
+    render :new and return unless @client.valid?
+
+    if @matter_client.present?
+      flash[:not_unique] = '登録済みの顧客情報です'
+      render :new and return
+    elsif @client_first.valid?
+      @client_first.save
+      MatterClient.create(matter_id: params[:matter_id], client_id: @client_first.id)
       redirect_to matter_clients_path(matter_id: params[:matter_id])
     else
-      render :new
+      render :new and return
     end
   end
   
   def update
-    if MatterClient.where(client_id: params[:id]).count == 1 
-      if @client.update(client_params)
-        redirect_to matter_clients_path(matter_id: params[:matter_id])
-      else
-        render :edit
-      end
+    if @matter_client.present?
+      flash[:not_unique] = '登録済みの顧客情報です'
+      render :edit and return
+    elsif MatterClient.where(client_id: params[:id]).count == 1
+      @client.update(client_params)
+      redirect_to matter_clients_path(matter_id: params[:matter_id])
+    elsif @client_first.valid?
+      @client_first.save
+      @matter_client.update(matter_id: params[:matter_id], client_id: @client_first.id)
+      redirect_to matter_clients_path(matter_id: params[:matter_id])
     else
-      @client = Client.new(client_params)
-      if @client.valid?
-        @client.save
-        @matter_client.update(matter_id: params[:matter_id], client_id: @client.id)
-        redirect_to matter_clients_path(matter_id: params[:matter_id])
-      else
-        render :edit
-      end
+      flash[:not_editted] = '編集できませんでした'
+      render :edit and return
     end
   end
 
   def destroy
+        @matter_client = MatterClient.find_by(matter_id: params[:matter_id], client_id: params[:id])
     path = Rails.application.routes.recognize_path(request.referer)
     if MatterClient.where(matter_id: params[:matter_id]).count == 1 
       flash[:failure] = '顧客情報が一件のため削除できませんでした'
@@ -77,6 +82,11 @@ class ClientsController < ApplicationController
   end
 
   def matter_client_find
-    @matter_client = MatterClient.find_by(matter_id: params[:matter_id], client_id: params[:id])
+    @matter_client = MatterClient.find_by(matter_id: params[:matter_id], client_id: @client_first.id)
   end
+
+  def client_first
+    @client_first = Client.where(company: params[:client][:company], department: params[:client][:department], name: params[:client][:name] ).first_or_initialize
+  end
+
 end
