@@ -1,0 +1,2 @@
+class BusinessTalkRecord < ApplicationRecord
+end
