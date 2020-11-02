@@ -47,9 +47,9 @@
 | --------------------- | ---------- | ------------------------------- |
 | user                  | references | null: false, foreign_key: true  |
 | matter                | references | null: false, foreign_key: true  |
-| business_talk_start   | datetime   | null: false                     |
-| business_talk_end     | datetime   | null: false                     |
-| business_talk_explain | text       | null: false                     |
+| start                 | datetime   | null: false                     |
+| end                   | datetime   | null: false                     |
+| explain               | text       | null: false                     |
 
 ### Association
 
