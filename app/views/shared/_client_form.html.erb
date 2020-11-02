@@ -1,4 +1,9 @@
+<% if flash[:not_unique].present? || flash[:not_editted].present? %>
+<p class="client-not-unique-message"><%= flash[:not_unique] %></p>
+<p class="client-not-unique-message"><%= flash[:not_editted] %></p>
+<% else %>
 <%= render "shared/error_messages", model: @client %>
+<% end %>
 <table class="matter-table">
   <tr class="matter-table-row-low">
     <th>会社名</th>
