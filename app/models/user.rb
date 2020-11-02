@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one_attached :user_image
   has_many :matter
+  has_many :business_talk_record
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :administrator
