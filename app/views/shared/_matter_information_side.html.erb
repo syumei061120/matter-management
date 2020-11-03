@@ -4,7 +4,9 @@
     </li>
     <li><%= link_to "案件情報編集", edit_matter_path(matter.id), class:"sidebar-link" %></li>
     </li>
-    <li><%= link_to "担当営業情報編集", edit_sales_staff_path(matter.sales_staff_id), class:"sidebar-link" %></li>
+    <li>
+      <%= link_to "担当営業情報編集", edit_matter_sales_staff_path(matter_id: matter.id, id: matter.sales_staff_id), class:"sidebar-link" %>
+    </li>
     </li>
     <li><%= link_to "顧客情報追加", new_matter_client_path(matter.id), class:"sidebar-link" %></li>
     </li>
