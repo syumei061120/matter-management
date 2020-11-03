@@ -71,18 +71,25 @@
   <div class="right-side">
     <div class="right-side-top">
       <h2>顧客情報</h2>
-      <p class="client-delete-message"><%= flash[:success] %></p>
-      <p class="client-delete-message"><%= flash[:failure] %></p>
-
-      <% @matter.matter_clients.first(3).each do |matter_client| %>
+      <p class="client-delete-message"><%= flash[:client_success] %></p>
+      <p class="client-delete-message"><%= flash[:client_failure] %></p>
+      <% @matter.matter_clients.first(2).each do |matter_client| %>
       <%= render partial: "shared/client_list", locals: { matter_client: matter_client } %>
-      <%end%>
+      <% end %>
       <div class="all-client">
         <%= link_to "この案件の顧客情報一覧を開く", matter_clients_path(@matter.id), class:"all-client-link" %>
       </div>
     </div>
     <div class="right-side-bottom">
-      <h2>直近の商談履歴</h2>
+      <h2>商談記録</h2>
+      <p class="client-delete-message"><%= flash[:business_talk_record_success] %></p>
+
+      <% @matter.business_talk_records.order(end: :desc).first(1).each do |business_talk_record| %>
+      <%= render partial: "shared/business_talk_record_list", locals: { business_talk_record: business_talk_record } %>
+      <% end %>
+      <div class="all-client">
+        <%= link_to "この案件の商談記録一覧を開く", matter_business_talk_records_path(@matter.id), class:"all-client-link" %>
+      </div>
     </div>
   </div>
 </div>
