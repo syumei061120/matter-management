@@ -1,0 +1,32 @@
+.business-talk-record-main {
+  width: 100%;
+  padding: 20px;
+}
+
+.business-talk-record-title {
+  height: 30px;
+  width: 90%;
+  min-width: 800px;
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+.business-talk-record-delete-message {
+  width: 90%;
+  min-width: 800px;
+  font-size: 14px;
+  color: red;
+  margin: 0 auto;
+}
+
+.business-talk-record-main .business-talk-record-table {
+  border: solid 2px grey;
+  margin: 10px 0 10px 5%;
+  width: 60%;
+  min-width: 800px;
+}
+
+.business-talk-record-main .business-talk-record-table td {
+  overflow-wrap: normal;
+  width: calc(80%-200px)/2
+}

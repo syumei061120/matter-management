@@ -1,0 +1,36 @@
+.business-talk-record-table {
+  border: solid 2px grey;
+  margin: 10px auto;
+  width: 80%;
+  min-width: 400px;
+}
+
+.business-talk-record-table th {
+  width: 100px;
+  padding-left: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  vertical-align: middle;
+}
+
+.business-talk-record-table td {
+  overflow-wrap: normal;
+  width: calc(80%-160px)/3;
+}
+
+.file-links {
+  border-bottom: dotted grey 1px;
+}
+
+.business_talk_record-edit-link {
+  margin-right: 3px;
+}
+
+.business_talk_record-edit-link img {
+  height: 15px;
+}
+
+.other_files {
+  margin-left: 30px;
+  display: inline;
+}

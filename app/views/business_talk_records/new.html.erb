@@ -1,0 +1,15 @@
+<body>
+  <div class='matter'>
+    <div class='matter-title'>
+      <h2>商談履歴を登録してください</h2>
+    </div>
+    <div class="matter-main">
+      <%= form_with model: @business_talk_record, url:matter_business_talk_records_path, class:"matter-forms", local: true do |f|  %>
+      <%= render partial: "shared/business_talk_record_form", locals: { f: f } %>
+      <div>
+        <%= f.submit "商談記録を登録" ,class:"user-button" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</body>
