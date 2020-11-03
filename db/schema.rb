@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 2020_11_02_035337) do
   create_table "business_talk_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "matter_id"
-    t.datetime "start", null: false
-    t.datetime "end", null: false
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
     t.text "explain", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

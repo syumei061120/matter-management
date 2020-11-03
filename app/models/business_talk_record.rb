@@ -4,8 +4,8 @@ class BusinessTalkRecord < ApplicationRecord
   belongs_to :matter
 
   with_options presence: true do
-    validates :start
-    validates :end
+    validates :start_time
+    validates :end_time
     validates :explain
   end
 end
