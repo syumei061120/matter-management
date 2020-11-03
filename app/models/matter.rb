@@ -8,7 +8,7 @@ class Matter < ApplicationRecord
   belongs_to :sales_staff, optional: true
   has_many   :matter_clients
   has_many   :clients, through: :matter_clients
-  has_many   :business_tals_records
+  has_many   :business_talk_records
 
 
   with_options presence: true do
