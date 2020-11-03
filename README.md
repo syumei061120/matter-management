@@ -47,8 +47,8 @@
 | --------------------- | ---------- | ------------------------------- |
 | user                  | references | null: false, foreign_key: true  |
 | matter                | references | null: false, foreign_key: true  |
-| start                 | datetime   | null: false                     |
-| end                   | datetime   | null: false                     |
+| start_time            | datetime   | null: false                     |
+| end_time              | datetime   | null: false                     |
 | explain               | text       | null: false                     |
 
 ### Association
