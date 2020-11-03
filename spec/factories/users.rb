@@ -13,7 +13,7 @@ FactoryBot.define do
     administrator_id { Faker::Number.between(from: 1, to: 2) }
 
     after(:build) do |item|
-      item.user_image.attach(io: File.open('public/images/sample1.png'), filename: 'sample1.png')
+      item.user_image.attach(io: File.open('public/sample1.png'), filename: 'sample1.png')
     end
   end
 end
