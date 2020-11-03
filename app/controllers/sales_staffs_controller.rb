@@ -1,9 +1,21 @@
 class SalesStaffsController < ApplicationController
-  before_action :sales_staff_find, only: [:show, :edit, :update]
 
+def edit
+  @sales_staff = SalesStaff.find(params[:id])
+  @matter = Matter.find(params[:matter_id])
+end
   def update
-    if @sales_staff.update(sales_staff_params)
-      redirect_to matter_path
+    @sales_staff = SalesStaff.where(department: params[:sales_staff][:department], staff: params[:sales_staff][:staff] ).first_or_initialize
+    @matter = Matter.find(params[:matter_id])
+    if @sales_staff.valid?
+      @sales_staff.save
+      @matter.assign_attributes(sales_staff_id: @sales_staff.id)
+      @matter.save
+      unless Matter.where(sales_staff_id: params[:id]).present?
+        sales_staff = SalesStaff.find(params[:id])
+        sales_staff.destroy
+      end
+    redirect_to matter_path(id: params[:matter_id])
     else
       render :edit
     end
@@ -14,7 +26,4 @@ class SalesStaffsController < ApplicationController
     params.require(:sales_staff).permit(:department, :staff)
   end
 
-  def sales_staff_find
-    @sales_staff = SalesStaff.find(params[:id])
-  end
 end
