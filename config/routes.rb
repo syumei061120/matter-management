@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "matters#index"
   resources :matters do
       resources :clients, except: [:show]
+      resources :business_talk_records, except: [:show]
     collection do
       get 'search'
       get 'clients', to: 'matters#new_client'

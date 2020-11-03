@@ -10,7 +10,9 @@
     </li>
     <li><%= link_to "顧客情報一覧", matter_clients_path(matter.id), class:"sidebar-link" %></li>
     </li>
-    <li><%= link_to "商談一覧", "#", class:"sidebar-link" %></li>
+    <li><%= link_to "商談記録登録", new_matter_business_talk_record_path(matter.id), class:"sidebar-link" %></li>
+    </li>
+    <li><%= link_to "商談記録一覧", matter_business_talk_records_path(matter.id), class:"sidebar-link" %></li>
     </li>
     <li><%= link_to "案件削除", "#", class:"sidebar-link" %></li>
     </li>

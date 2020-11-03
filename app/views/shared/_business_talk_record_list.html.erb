@@ -1,0 +1,55 @@
+<table class="business-talk-record-table">
+  <tr class="matter-information-table-row-low">
+    <th>開始時刻</th>
+    <td> <%= business_talk_record.start.strftime("%Y-%m-%d %H:%M") %>
+    </td>
+    <td class="link-td">
+      <%= link_to image_tag("edit-icon"), edit_matter_business_talk_record_path(matter_id: @matter.id, id: business_talk_record.id), class:"client-edit-link" %>
+      <%= link_to image_tag("delete-icon"), matter_business_talk_record_path(matter_id: @matter.id, id: business_talk_record.id), method: :delete, data: {confirm: "削除しますか？"}, class:"client-edit-link" %>
+    </td>
+  </tr>
+  <tr class="matter-information-table-row-low">
+    <th>終了時刻</th>
+    <td colspan="2">
+      <%= business_talk_record.end.strftime("%Y-%m-%d %H:%M") %>
+    </td>
+  </tr>
+  <tr class="matter-information-table-row-high">
+    <th>商談内容</th>
+    <td colspan="2">
+      <%= business_talk_record.explain %>
+    </td>
+  </tr>
+  <% if business_talk_record.files.present? %>
+  <% if business_talk_record.files.size >= 2 %>
+  <% files = business_talk_record.files.last(2) %>
+  <% else %>
+  <% files = business_talk_record.files.first(1) %>
+  <% end %>
+  <% files.each.with_index(1) do |file, i|%>
+  <tr class="file-links">
+    <th>
+      <%="資料#{i}"%>
+    </th>
+    <td colspan="2">
+      <%= link_to rails_blob_path(file), class:"business_talk_record-edit-link"  do %>
+      <%= image_tag 'file-icon' %>
+      <%= file.filename %>
+      <% end %>
+      <% if i == 2 %>
+      <p class="other_files">
+        <%= link_to "その他#{business_talk_record.files.size - i}点", matter_business_talk_records_path(@matter.id) %>
+      </p>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+  <% else %>
+  <tr>
+    <th>資料</th>
+    <td colspan="2">
+      なし
+    </td>
+  </tr>
+  <% end %>
+</table>

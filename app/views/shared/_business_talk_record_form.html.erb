@@ -1,0 +1,51 @@
+<% if flash[:incorrect_time].present? %>
+<p class="client-not-unique-message"><%= flash[:incorrect_time] %></p>
+<% else %>
+<%= render "shared/error_messages", model: @business_talk_record %>
+<% end %>
+<table class="matter-table">
+  <tr class="matter-table-row-low">
+    <th>開始時刻
+      <span class="hissu">必須</span>
+    </th>
+    <td><%= f.datetime_field :start, class:"matter-text-field" %>
+    </td>
+  </tr>
+  <tr class="matter-table-row-low">
+    <th>終了時刻
+      <span class="hissu">必須</span>
+    </th>
+    <td><%= f.datetime_field :end, class:"matter-text-field" %>
+    </td>
+  </tr>
+  <tr class="matter-table-row-high">
+    <th>商談内容
+      <span class="hissu">必須</span>
+    </th>
+    <td><%= f.text_field :explain, class:"matter-text-area-high" %>
+    </td>
+  </tr>
+  <tr class="matter-table-row-low">
+    <th>商談資料<br>
+      <p class="file-explain">(複数ファイル選択できます)
+      </p>
+    </th>
+    <td>
+      <%= f.file_field :files, multiple: true, id:"business_talk_record-file" %>
+    </td>
+  </tr>
+  <% if @business_talk_record.files.present? %>
+  <tr class="matter-information-table-row-high">
+    <th>アップロード済み資料<br>
+      <p class="file-explain">不要なファイルはチェックしてください
+      </p>
+    </th>
+    <td>
+      <% @business_talk_record.files.each do |file|%>
+      <%= f.check_box :file_ids, {:multiple => true}, file.id, false %>
+      <%= file.filename %><br>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>
