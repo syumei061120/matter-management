@@ -6,10 +6,6 @@
   font-size: 20px;
 }
 
-.client-information {
-  display: flex;
-}
-
 .client-left-side,
 .client-right-side {
   width: 50%;
