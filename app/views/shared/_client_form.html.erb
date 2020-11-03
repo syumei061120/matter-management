@@ -1,22 +1,28 @@
-<% if flash[:not_unique].present? || flash[:not_editted].present? %>
-<p class="client-not-unique-message"><%= flash[:not_unique] %></p>
-<p class="client-not-unique-message"><%= flash[:not_editted] %></p>
+<% if flash[:client_not_unique].present? || flash[:client_not_editted].present? %>
+<p class="client-not-unique-message"><%= flash[:client_not_unique] %></p>
+<p class="client-not-unique-message"><%= flash[:client_not_editted] %></p>
 <% else %>
 <%= render "shared/error_messages", model: @client %>
 <% end %>
 <table class="matter-table">
   <tr class="matter-table-row-low">
-    <th>会社名</th>
+    <th>会社名
+      <span class="hissu">必須</span>
+    </th>
     <td><%= f.text_field :company, class:"matter-text-field", id:"client-company" %>
     </td>
   </tr>
   <tr class="matter-table-row-middle">
-    <th>部署・役職</th>
+    <th>部署・役職
+      <span class="hissu">必須</span>
+    </th>
     <td><%= f.text_area :department, class:"matter-text-area-middle", id:"client-department" %>
     </td>
   </tr>
   <tr class="matter-table-row-low">
-    <th>担当者</th>
+    <th>担当者
+      <span class="hissu">必須</span>
+    </th>
     <td><%= f.text_field :name, class:"matter-text-field", id:"client-name" %>
     </td>
   </tr>

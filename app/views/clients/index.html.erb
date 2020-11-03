@@ -5,8 +5,8 @@
     <h2 class="client-title">
       <%= "#{@matter.matter_name}の顧客情報" %>
     </h2>
-    <p class="client-delete-message"><%= flash[:success] %></p>
-    <p class="client-delete-message"><%= flash[:failure] %></p>
+    <p class="client-delete-message"><%= flash[:client_success] %></p>
+    <p class="client-delete-message"><%= flash[:client_failure] %></p>
     <% @matter_clients.first((@matter_clients.length.to_f/2).ceil).each do |matter_client| %>
     <%= render partial: "shared/client_list", locals: { matter_client: matter_client } %>
     <%end%>

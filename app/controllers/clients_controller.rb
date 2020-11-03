@@ -17,7 +17,7 @@ class ClientsController < ApplicationController
     render :new and return unless @client.valid?
 
     if @matter_client.present?
-      flash[:not_unique] = '登録済みの顧客情報です'
+      flash[:client_not_unique] = '登録済みの顧客情報です'
       render :new and return
     elsif @client_first.valid?
       @client_first.save
@@ -30,7 +30,7 @@ class ClientsController < ApplicationController
   
   def update
     if @matter_client.present?
-      flash[:not_unique] = '登録済みの顧客情報です'
+      flash[:client_not_unique] = '登録済みの顧客情報です'
       render :edit and return
     elsif MatterClient.where(client_id: params[:id]).count == 1
       @client.update(client_params)
@@ -40,7 +40,7 @@ class ClientsController < ApplicationController
       @matter_client.update(matter_id: params[:matter_id], client_id: @client_first.id)
       redirect_to matter_clients_path(matter_id: params[:matter_id])
     else
-      flash[:not_editted] = '編集できませんでした'
+      flash[:client_not_editted] = '編集できませんでした'
       render :edit and return
     end
   end
@@ -49,14 +49,14 @@ class ClientsController < ApplicationController
         @matter_client = MatterClient.find_by(matter_id: params[:matter_id], client_id: params[:id])
     path = Rails.application.routes.recognize_path(request.referer)
     if MatterClient.where(matter_id: params[:matter_id]).count == 1 
-      flash[:failure] = '顧客情報が一件のため削除できませんでした'
+      flash[:client_failure] = '顧客情報が一件のため削除できませんでした'
     elsif MatterClient.where(client_id: params[:id]).count == 1 
       @matter_client.destroy
       @client.destroy
-      flash[:success] = '顧客情報を削除しました'
+      flash[:client_success] = '顧客情報を削除しました'
     else
       @matter_client.destroy
-      flash[:success] = '顧客情報を削除しました'
+      flash[:client_success] = '顧客情報を削除しました'
     end
 
     if path[:controller] == "matters" && path[:action] == "show"
