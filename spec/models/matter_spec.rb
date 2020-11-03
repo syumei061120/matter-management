@@ -10,6 +10,21 @@ RSpec.describe Matter, type: :model do
     it '全ての情報が存在すれば登録できること' do
       expect(@matter).to be_valid
     end
+    it '案件詳細が空でも登録できること' do
+      @matter.matter_explain = nil
+      @matter.valid?
+      expect(@matter).to be_valid
+    end
+   it '販売金額見込みが空でも登録できること' do
+      @matter.sale_price = nil
+      @matter.valid?
+      expect(@matter).to be_valid
+    end
+   it '利益見込みが空でも登録できること' do
+      @matter.profit_price = nil
+      @matter.valid?
+      expect(@matter).to be_valid
+    end
 
     # 案件名が正しく入力できていない
     it 'matter_nameが空では登録できないこと' do
