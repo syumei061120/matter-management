@@ -46,7 +46,7 @@ class ClientsController < ApplicationController
   end
 
   def destroy
-        @matter_client = MatterClient.find_by(matter_id: params[:matter_id], client_id: params[:id])
+    @matter_client = MatterClient.find_by(matter_id: params[:matter_id], client_id: params[:id])
     path = Rails.application.routes.recognize_path(request.referer)
     if MatterClient.where(matter_id: params[:matter_id]).count == 1 
       flash[:client_failure] = '顧客情報が一件のため削除できませんでした'
