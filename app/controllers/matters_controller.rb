@@ -1,5 +1,5 @@
 class MattersController < ApplicationController
-  before_action :matter_find, only: [:show, :edit, :update]
+  before_action :matter_find, only: [:show, :edit, :update, :destroy]
 
   def index
     @matters = Matter.all.order(updated_at: "DESC")
@@ -51,6 +51,22 @@ class MattersController < ApplicationController
   end
 
   def search
+  end
+
+  def destroy
+    @sales_staff = SalesStaff.find(@matter.sales_staff_id)
+    @matter_clients = MatterClient.where(matter_id: params[:id])
+    @matter_clients.each do |matter_client|
+      if MatterClient.where(client_id: matter_client.client_id).count == 1
+        @client = Client.find(matter_client.client_id)
+        @client.destroy
+      end
+    end
+    @matter.destroy
+    unless Matter.where(sales_staff_id: @sales_staff.id).present?
+      @sales_staff.destroy
+    end
+    redirect_to root_path
   end
 
   private
