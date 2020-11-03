@@ -84,7 +84,7 @@
       <h2>商談記録</h2>
       <p class="client-delete-message"><%= flash[:business_talk_record_success] %></p>
 
-      <% @matter.business_talk_records.order(end: :desc).first(1).each do |business_talk_record| %>
+      <% @matter.business_talk_records.order(end_time: :desc).first(1).each do |business_talk_record| %>
       <%= render partial: "shared/business_talk_record_list", locals: { business_talk_record: business_talk_record } %>
       <% end %>
       <div class="all-client">

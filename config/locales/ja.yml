@@ -28,6 +28,10 @@ ja:
     sales_staff:
       department: 部署・役職
       staff: 営業スタッフ
+    business_talk_record: 
+      start_time: 開始時刻
+      end_time: 終了時刻
+      explain: 商談内容
     time:
       formats:
         default: "%Y/%m/%d %H:%M:%S"
