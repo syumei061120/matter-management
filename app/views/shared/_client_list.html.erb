@@ -5,10 +5,10 @@
     </td>
     <td class="link-td">
       <%= link_to image_tag("edit-icon"), edit_matter_client_path(matter_id: @matter.id, id: matter_client.client_id), class:"client-edit-link" %>
-      <%= link_to image_tag("delete-icon"), matter_client_path(matter_id: @matter.id, id: matter_client.client_id), method: :delete, class:"client-edit-link" %>
+      <%= link_to image_tag("delete-icon"), matter_client_path(matter_id: @matter.id, id: matter_client.client_id), method: :delete, data: {confirm: "削除しますか？"}, class:"client-edit-link" %>
     </td>
   </tr>
-  <tr class="matter-information-table-row-low">
+  <tr class="matter-information-table-row-middle">
     <th>部署・役職</th>
     <td colspan="2">
       <%= matter_client.client.department %>
