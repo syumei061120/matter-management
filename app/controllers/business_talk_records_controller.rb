@@ -1,8 +1,7 @@
 class BusinessTalkRecordsController < ApplicationController
-
   def index
     @matter = Matter.find(params[:matter_id])
-    @business_talk_records = BusinessTalkRecord.where(matter_id: params[:matter_id]).order(end: "DESC")
+    @business_talk_records = BusinessTalkRecord.where(matter_id: params[:matter_id]).order(end: 'DESC')
   end
 
   def new
@@ -12,12 +11,14 @@ class BusinessTalkRecordsController < ApplicationController
   def create
     @business_talk_record = BusinessTalkRecord.new(business_talk_record_params)
     render :new and return unless @business_talk_record.valid?
+
     if params[:business_talk_record][:start] > params[:business_talk_record][:end]
       flash[:incorrect_time] = '開始時刻は終了時刻より前の日時を設定して下さい'
       render :new
     else
       @business_talk_record = BusinessTalkRecord.new(business_talk_record_params)
       render :new and return unless @business_talk_record.valid?
+
       @business_talk_record.save
       redirect_to matter_business_talk_records_path
     end
@@ -56,9 +57,9 @@ class BusinessTalkRecordsController < ApplicationController
     @business_talk_record.destroy
     flash[:business_talk_record_success] = '商談情報を削除しました'
 
-    if path[:controller] == "matters" && path[:action] == "show"
+    if path[:controller] == 'matters' && path[:action] == 'show'
       redirect_to matter_path(id: params[:matter_id])
-    elsif path[:controller] == "business_talk_records" && path[:action] == "index"
+    elsif path[:controller] == 'business_talk_records' && path[:action] == 'index'
       redirect_to matter_business_talk_records_path(matter_id: params[:matter_id])
     else
       redirect_to root_path
@@ -66,6 +67,7 @@ class BusinessTalkRecordsController < ApplicationController
   end
 
   private
+
   def business_talk_record_params
     params.require(:business_talk_record).permit(:start, :end, :explain, files: []).merge(user_id: current_user.id, matter_id: params[:matter_id])
   end

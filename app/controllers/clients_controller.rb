@@ -1,8 +1,8 @@
 class ClientsController < ApplicationController
-    before_action :matter_find, only: [:index, :edit, :update]
-    before_action :client_find, only: [:edit, :update, :destroy]
-    before_action :client_first, only: [:create, :update]
-    before_action :matter_client_find, only: [:create, :update]
+  before_action :matter_find, only: [:index, :edit, :update]
+  before_action :client_find, only: [:edit, :update, :destroy]
+  before_action :client_first, only: [:create, :update]
+  before_action :matter_client_find, only: [:create, :update]
 
   def index
     @matter_clients = MatterClient.where(matter_id: params[:matter_id])
@@ -15,6 +15,7 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
     render :new and return unless @client.valid?
+
     if @matter_client.present?
       flash[:client_not_unique] = '登録済みの顧客情報です'
       render :new and return
@@ -26,7 +27,7 @@ class ClientsController < ApplicationController
       render :new and return
     end
   end
-  
+
   def update
     if @matter_client.present?
       flash[:client_not_unique] = '登録済みの顧客情報です'
@@ -51,9 +52,9 @@ class ClientsController < ApplicationController
   def destroy
     @matter_client = MatterClient.find_by(matter_id: params[:matter_id], client_id: params[:id])
     path = Rails.application.routes.recognize_path(request.referer)
-    if MatterClient.where(matter_id: params[:matter_id]).count == 1 
+    if MatterClient.where(matter_id: params[:matter_id]).count == 1
       flash[:client_failure] = '顧客情報が一件のため削除できませんでした'
-    elsif MatterClient.where(client_id: params[:id]).count == 1 
+    elsif MatterClient.where(client_id: params[:id]).count == 1
       @matter_client.destroy
       @client.destroy
       flash[:client_success] = '顧客情報を削除しました'
@@ -62,9 +63,9 @@ class ClientsController < ApplicationController
       flash[:client_success] = '顧客情報を削除しました'
     end
 
-    if path[:controller] == "matters" && path[:action] == "show"
+    if path[:controller] == 'matters' && path[:action] == 'show'
       redirect_to matter_path(id: params[:matter_id])
-    elsif path[:controller] == "clients" && path[:action] == "index"
+    elsif path[:controller] == 'clients' && path[:action] == 'index'
       redirect_to matter_clients_path(matter_id: params[:matter_id])
     else
       redirect_to root_path
@@ -72,6 +73,7 @@ class ClientsController < ApplicationController
   end
 
   private
+
   def client_params
     params.require(:client).permit(:company, :department, :name)
   end
@@ -89,7 +91,6 @@ class ClientsController < ApplicationController
   end
 
   def client_first
-    @client_first = Client.where(company: params[:client][:company], department: params[:client][:department], name: params[:client][:name] ).first_or_initialize
+    @client_first = Client.where(company: params[:client][:company], department: params[:client][:department], name: params[:client][:name]).first_or_initialize
   end
-
 end

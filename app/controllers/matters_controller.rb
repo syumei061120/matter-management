@@ -2,7 +2,7 @@ class MattersController < ApplicationController
   before_action :matter_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @matters = Matter.all.order(updated_at: "DESC")
+    @matters = Matter.all.order(updated_at: 'DESC')
   end
 
   def new
@@ -63,9 +63,7 @@ class MattersController < ApplicationController
       end
     end
     @matter.destroy
-    unless Matter.where(sales_staff_id: @sales_staff.id).present?
-      @sales_staff.destroy
-    end
+    @sales_staff.destroy unless Matter.where(sales_staff_id: @sales_staff.id).present?
     redirect_to root_path
   end
 

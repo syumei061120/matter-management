@@ -1,11 +1,11 @@
 class SalesStaffsController < ApplicationController
+  def edit
+    @sales_staff = SalesStaff.find(params[:id])
+    @matter = Matter.find(params[:matter_id])
+  end
 
-def edit
-  @sales_staff = SalesStaff.find(params[:id])
-  @matter = Matter.find(params[:matter_id])
-end
   def update
-    @sales_staff = SalesStaff.where(department: params[:sales_staff][:department], staff: params[:sales_staff][:staff] ).first_or_initialize
+    @sales_staff = SalesStaff.where(department: params[:sales_staff][:department], staff: params[:sales_staff][:staff]).first_or_initialize
     @matter = Matter.find(params[:matter_id])
     if @sales_staff.valid?
       @sales_staff.save
@@ -15,15 +15,15 @@ end
         sales_staff = SalesStaff.find(params[:id])
         sales_staff.destroy
       end
-    redirect_to matter_path(id: params[:matter_id])
+      redirect_to matter_path(id: params[:matter_id])
     else
       render :edit
     end
   end
 
   private
+
   def sales_staff_params
     params.require(:sales_staff).permit(:department, :staff)
   end
-
 end
