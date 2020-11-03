@@ -15,7 +15,6 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
     render :new and return unless @client.valid?
-
     if @matter_client.present?
       flash[:client_not_unique] = '登録済みの顧客情報です'
       render :new and return
@@ -33,11 +32,15 @@ class ClientsController < ApplicationController
       flash[:client_not_unique] = '登録済みの顧客情報です'
       render :edit and return
     elsif MatterClient.where(client_id: params[:id]).count == 1
-      @client.update(client_params)
+      @client_first.save
+      @client.destroy
+      matter_client = MatterClient.new(matter_id: params[:matter_id], client_id: @client_first.id)
+      matter_client.update(matter_id: params[:matter_id], client_id: @client_first.id)
       redirect_to matter_clients_path(matter_id: params[:matter_id])
     elsif @client_first.valid?
       @client_first.save
-      @matter_client.update(matter_id: params[:matter_id], client_id: @client_first.id)
+      matter_client = MatterClient.find_by(matter_id: params[:matter_id], client_id: params[:id])
+      matter_client.update(matter_id: params[:matter_id], client_id: @client_first.id)
       redirect_to matter_clients_path(matter_id: params[:matter_id])
     else
       flash[:client_not_editted] = '編集できませんでした'
