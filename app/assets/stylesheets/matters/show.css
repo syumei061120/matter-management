@@ -46,6 +46,7 @@
 }
 
 .matter-information-table-row-high,
+.matter-information-table-row-middle,
 .matter-information-table-row-low {
   font-size: 14px;
   border-bottom: solid 1px grey;
@@ -54,6 +55,11 @@
 
 .matter-information-table-row-high {
   height: 90px;
+  border-top: solid 1px grey;
+}
+
+.matter-information-table-row-middle {
+  height: 60px;
   border-top: solid 1px grey;
 }
 
@@ -67,7 +73,7 @@
 }
 
 .right-side-top {
-  height: 380px;
+  height: 350px;
 }
 
 .client-delete-message {
