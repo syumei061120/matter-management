@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :sales_staffs, only: [:edit, :update]
     collection do
       get 'search'
+      post 'search'
       get 'clients', to: 'matters#new_client'
       post 'clients', to: 'matters#create_client'
     end
