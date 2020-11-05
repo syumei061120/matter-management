@@ -8,7 +8,22 @@
 
 .matter-lists {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-wrap: wrap;
   padding-top: 20px;
+}
+
+.matter-lists::before {
+  display: block;
+  content: "";
+  width: 270px;
+  order: 1;
+  margin: 0 1.5vw 20px;
+}
+
+.matter-lists::after {
+  display: block;
+  content: "";
+  width: 270px;
+  margin: 0 1.5vw 20px;
 }
