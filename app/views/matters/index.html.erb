@@ -1,48 +1,8 @@
 <%= render "shared/header" %>
 <div class="top-main">
   <div class="matter-lists">
-    <% @matters.each do |matter| %>
-    <div class="matter-list">
-      <table class="matter-list-table">
-        <tr>
-          <th>
-            <%= image_tag current_user.user_image, class:"user-icon" %>
-          </th>
-          <td>
-            <%= link_to "#{matter.matter_name}" ,matter_path(matter.id), class: "matter-link" %>
-          </td>
-        </tr>
-        <tr>
-          <th>売金額 <span class="price-unit">(千円)</span>
-          </th>
-          <td><% if matter.sale_price.present? %>
-            <%= "¥#{matter.sale_price.to_s(:delimited, delimiter: ',')}" %>
-            <% else %>
-            未定
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th>重点度</th>
-          <td><%= matter.priority.name %>
-          </td>
-        </tr>
-        <tr>
-          <th>進捗</th>
-          <td><%= matter.progress.name %>
-          </td>
-        </tr>
-
-        <tr>
-          <th>きっかけ</th>
-          <td><%= matter.occasion %>
-          </td>
-        </tr>
-      </table>
-      <div class="matter-create-time">
-        <%= "#{matter.updated_at.strftime("%Y-%m-%d %H:%M")}更新" %>
-      </div>
-    </div>
+    <% @matters.first(8).each do |matter| %>
+    <%= render partial: "shared/matter_list", locals: {matter: matter}%>
     <%end%>
   </div>
 </div>
