@@ -10,7 +10,5 @@ FactoryBot.define do
     reliability_id { Faker::Number.between(from: 1, to: 6) }
     progress_id { Faker::Number.between(from: 1, to: 6) }
     occasion { Faker::Lorem.word }
-    staff_in_charge { Gimei.name.kanji }
-    is_edited { Faker::Boolean.boolean }
   end
 end

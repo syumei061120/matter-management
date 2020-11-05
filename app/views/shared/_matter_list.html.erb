@@ -1,0 +1,43 @@
+<%= link_to matter_path(matter.id), class: "matter-link" do %>
+<div class="matter-list">
+  <table class="matter-list-table">
+    <tr>
+      <th>
+        <%= image_tag current_user.user_image, class:"matter-list-icon" %>
+      </th>
+      <td>
+        <%= matter.matter_name.truncate(20) %>
+      </td>
+    </tr>
+    <tr>
+      <th>販売金額 <p class="price-unit">(千円)</p>
+      </th>
+      <td><% if matter.sale_price.present? %>
+        <%= "¥#{matter.sale_price.to_s(:delimited, delimiter: ',')}" %>
+        <% else %>
+        未定
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>重点度</th>
+      <td><%= matter.priority.name %>
+      </td>
+    </tr>
+    <tr>
+      <th>進捗</th>
+      <td><%= matter.progress.name %>
+      </td>
+    </tr>
+
+    <tr>
+      <th>きっかけ</th>
+      <td><%= matter.occasion.truncate(11) %>
+      </td>
+    </tr>
+  </table>
+  <div class="matter-create-time">
+    <%= "#{matter.updated_at.strftime("%Y-%m-%d %H:%M")}更新" %>
+  </div>
+</div>
+<%end%>

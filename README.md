@@ -31,8 +31,6 @@
 | reliability_id        | int        | null: false                     |
 | progress_id           | int        | null: false                     |
 | occasion              | string     | null: false                     |
-| staff_in_charge       | string     | null: false                     |
-| is_edited             | boolean    | null: false                     |
 
 ### Association
 

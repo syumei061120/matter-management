@@ -129,11 +129,5 @@ RSpec.describe Matter, type: :model do
       expect(@matter.errors.full_messages).to include('きっかけを入力してください')
     end
 
-    # 担当者が正しく入力できていない
-    it 'staff_in_chargeが空では登録できないこと' do
-      @matter.staff_in_charge = nil
-      @matter.valid?
-      expect(@matter.errors.full_messages).to include('担当者を入力してください')
-    end
   end
 end

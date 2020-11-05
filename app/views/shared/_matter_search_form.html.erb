@@ -1,0 +1,52 @@
+<div class="search-form-sort">
+  <%= f.select :sorts, {'並び替え': 'id desc', '更新(降順)': 'updated_at desc', '更新(昇順)': 'updated_at asc'}, { selected: params[:q][:sorts] },{ class:"sort-form"} %>
+  <%= f.submit '並び替え実行', class:"sort-button" %>
+</div>
+<div class="search-form-middle">
+  <label class="search-title"><%= f.label :matter_name_or_matter_explain, "案件名・案件詳細" %>
+  </label>
+  <%= f.search_field :matter_name_or_matter_explain_cont, class: "search-form-large", placeholder:"キーワードを入力" %>
+</div>
+<div class="search-form-middle">
+  <label class="search-title"><%= f.label :product, "商材" %>
+  </label>
+  <%= f.search_field :product_cont, class: "search-form-large", placeholder:"キーワードを入力" %>
+</div>
+<div class="search-form-high">
+  <%= f.label :sale_price, "販売金額見込み", class:"search-title" %>
+  <%= f.text_field :sale_price_gteq, class: "search-form-medium" %><p class="search-form-unit">(千円)〜</p>
+  <%= f.text_field :sale_price_lteq, class: "search-form-medium" %><p class="search-form-unit">(千円)</p>
+</div>
+<div class="search-form-high">
+  <%= f.label :profit_price, "利益見込み", class:"search-title"  %>
+  <%= f.text_field :profit_price_gteq, class: "search-form-medium" %><p class="search-form-unit">(千円)〜</p>
+  <%= f.text_field :profit_price_lteq, class: "search-form-medium" %><p class="search-form-unit">(千円)</p>
+</div>
+<div class="search-form-high">
+  <%= f.label :sale_time, "販売時期", class:"search-title" %>
+  <p class="search-form-date">
+    <%= raw sprintf( f.date_select( :sale_time_gteq, { use_month_numbers: true,discard_day: true, prompt:'--',start_year: 2020,end_year: Time.zone.now.year+5, date_separator:'%s'}, 
+            {class:"search-form-small"}),'<p class="search-form-unit">年</p>', '<p class="search-form-unit">月</p>') %>
+  </p>
+  <p class="search-form-date">
+    <%= raw sprintf( f.date_select( :sale_time_lteq, { use_month_numbers: true, prompt:'--',start_year: 2020,end_year: Time.zone.now.year+5, date_separator:'%s'},
+            {class:"search-form-small"}),'<p class="search-form-unit">年</p>', '<p class="search-form-unit">月</p>') + '<p class="search-form-unit">日</p>' %>
+  </p>
+</div>
+<div class="search-form-middle">
+  <%= f.label :priority_id_eq, "重点度",  class:"search-title" %>
+  <%= f.collection_select :priority_id_eq, @priority_id, :id, :name, {include_blank: '--'}, class: "search-form-large" %>
+</div>
+<div class="search-form-middle">
+  <%= f.label :reliability_id, "確度",  class:"search-title" %>
+  <%= f.collection_select :reliability_id_eq, @reliability_id, :id, :name, {include_blank: '--'}, class: "search-form-large" %>
+</div>
+<div class="search-form-middle">
+  <%= f.label :progress_id, "進捗",  class:"search-title" %>
+  <%= f.collection_select :progress_id_eq, @progress_id, :id, :name, {include_blank: '--'}, class: "search-form-large" %>
+</div>
+<div class="search-form-middle">
+  <%= f.label :occasion, "商材", class:"search-title" %>
+  <%= f.search_field :occasion_cont, class: "search-form-large", placeholder:"キーワードを入力"  %>
+</div>
+<%= f.submit '検索', class:"search-button" %>

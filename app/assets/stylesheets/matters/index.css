@@ -1,54 +1,14 @@
 .top-main {
   height: 100%;
   min-height: 100vh;
-  width: 100%;
+  max-width: 100%;
   background-color: rgb(230, 238, 243);
+  padding: 0 5vw;
 }
 
 .matter-lists {
-  max-width: 1300px;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  margin: 0 auto;
-  padding: 20px 0 0 45px;
-}
-
-.matter-list {
-  width: 260px;
-  border-top: solid 15px #00ffff;
-  background-color: #e0ffff;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 0 45px 20px 0;
-  font-size: 14px;
-}
-
-.matter-list-table th {
-  width: 80px;
-  padding: 10px;
-  border-bottom: solid 0.5px rgb(207, 206, 206);
-  font-weight: 600;
-}
-
-.matter-list-table td {
-  width: 170px;
-  padding: 10px;
-  border-bottom: solid 0.5px rgb(207, 206, 206);
-}
-
-.matter-link {
-  color: #00CCFF;
-  font-size: 18px;
-  text-decoration: none;
-}
-
-.price-unit {
-  font-size: 10px;
-}
-
-.matter-create-time {
-  font-size: 10px;
-  text-align: right;
-  margin-top: 10px;
+  padding-top: 20px;
 }

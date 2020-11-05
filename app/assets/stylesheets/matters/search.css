@@ -1,0 +1,16 @@
+.search-sidebar {
+  background-color: #dcdcdc;
+  width: 300px;
+  padding: 30px 10px 10px;
+  flex-shrink: 0;
+}
+
+.search-main {
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px 0 0 2vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
