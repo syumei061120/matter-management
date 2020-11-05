@@ -20,7 +20,6 @@ ja:
       reliability_id: 確度
       progress_id: 進捗
       occasion: きっかけ
-      staff_in_charge: 担当者
     client:
       company: 会社名
       department: 部署・役職

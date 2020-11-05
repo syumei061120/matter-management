@@ -37,8 +37,6 @@ Matter.create(
   reliability_id: 6,
   progress_id: 4,
   occasion: '担当営業からの相談',
-  staff_in_charge: '武田 信玄',
-  is_edited: false
 )
 Matter.create(
   user_id: 1,
@@ -53,8 +51,6 @@ Matter.create(
   reliability_id: 3,
   progress_id: 2,
   occasion: 'ホームページからの問合せ',
-  staff_in_charge: '武田 信玄',
-  is_edited: false
 )
 Matter.create(
   user_id: 1,
@@ -69,8 +65,6 @@ Matter.create(
   reliability_id: 1,
   progress_id: 1,
   occasion: '担当営業からの相談',
-  staff_in_charge: '武田 信玄',
-  is_edited: false
 )
 Matter.create(
   user_id: 1,
@@ -85,8 +79,6 @@ Matter.create(
   reliability_id: 1,
   progress_id: 2,
   occasion: '担当営業からの相談',
-  staff_in_charge: '武田 信玄',
-  is_edited: false
 )
 Matter.create(
   user_id: 1,
@@ -101,8 +93,6 @@ Matter.create(
   reliability_id: 3,
   progress_id: 2,
   occasion: '担当営業からの相談',
-  staff_in_charge: '武田 信玄',
-  is_edited: false
 )
 Matter.create(
   user_id: 1,
@@ -117,8 +107,6 @@ Matter.create(
   reliability_id: 2,
   progress_id: 2,
   occasion: '担当営業からの相談',
-  staff_in_charge: '武田 信玄',
-  is_edited: false
 )
 Matter.create(
   user_id: 1,
@@ -133,8 +121,6 @@ Matter.create(
   reliability_id: 2,
   progress_id: 2,
   occasion: '担当営業からの相談',
-  staff_in_charge: '武田 信玄',
-  is_edited: false
 )
 Matter.create(
   user_id: 1,
@@ -149,8 +135,6 @@ Matter.create(
   reliability_id: 5,
   progress_id: 2,
   occasion: 'ホームページからの問合せ',
-  staff_in_charge: '武田 信玄',
-  is_edited: false
 )
 Matter.create(
   user_id: 1,
@@ -166,8 +150,6 @@ Matter.create(
   reliability_id: 3,
   progress_id: 2,
   occasion: '担当営業からの相談',
-  staff_in_charge: '武田 信玄',
-  is_edited: false
 )
 Matter.create(
   user_id: 1,
@@ -182,8 +164,6 @@ Matter.create(
   reliability_id: 6,
   progress_id: 4,
   occasion: '担当営業からの相談',
-  staff_in_charge: '武田 信玄',
-  is_edited: false
 )
 
 Client.create!(

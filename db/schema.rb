@@ -75,8 +75,6 @@ ActiveRecord::Schema.define(version: 2020_11_02_035337) do
     t.integer "reliability_id", null: false
     t.integer "progress_id", null: false
     t.string "occasion", null: false
-    t.string "staff_in_charge", null: false
-    t.boolean "is_edited", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["sales_staff_id"], name: "index_matters_on_sales_staff_id"
