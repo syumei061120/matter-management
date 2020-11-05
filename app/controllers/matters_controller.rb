@@ -51,6 +51,18 @@ class MattersController < ApplicationController
   end
 
   def search
+    @priority_id = Priority.where.not(id:0)
+    @reliability_id =Reliability.where.not(id:0)
+    @progress_id =Progress.where.not(id:0)
+    if params[:q].present?
+    @p = Matter.ransack(params[:q]) 
+    @matters = @p.result
+    else
+      params[:q] = { sorts: 'id desc' }
+    @p = Matter.ransack() 
+    @matters = Matter.all.order(updated_at: 'DESC')
+    end
+
   end
 
   def destroy
@@ -70,7 +82,7 @@ class MattersController < ApplicationController
   private
 
   def matter_params
-    params.require(:matter).permit(:matter_name, :matter_explain, :product, :sale_price, :profit_price, :sale_time, :priority_id, :reliability_id, :progress_id, :occasion, :staff_in_charge, :is_edited).merge(user_id: current_user.id)
+    params.require(:matter).permit(:matter_name, :matter_explain, :product, :sale_price, :profit_price, :sale_time, :priority_id, :reliability_id, :progress_id, :occasion ).merge(user_id: current_user.id)
   end
 
   def client_params
