@@ -1,12 +1,19 @@
 <%= render "shared/header" %>
-<div class='matter-search'>
+<div class="matter-information">
+  <div class="search-sidebar">
+    <%= search_form_for @p, url:search_matters_path, class: 'search-form' do |f| %>
+    <%= render partial: "shared/matter_search_form", locals: {f: f}%>
+  </div>
   <div class="search-main">
-      <%= form_for @p, url:"#", class: 'search-form' do |f| %>
-      <%= f.search_field :name_cont, class: 'input-box', placeholder: 'キーワードから探す'  %>
-      <button class="search-button">
-        <%= image_tag "sample-logo.png", class:"search-icon" %>
-      </button>
+
+    <% if @matters.length !=0 %>
+    <% @matters.each do |result| %>
+    <%= render partial: "shared/matter_list", locals: {matter: result}%>
+    <% end %>
+    <% else %>
+    該当する商品はありません
+    <% end %>
     <% end %>
   </div>
-
+</div>
 <%= render "shared/footer" %>
