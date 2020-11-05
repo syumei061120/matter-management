@@ -1,5 +1,5 @@
 <div class="search-form-sort">
-  <%= f.select :sorts, {'並び替え': 'id desc', '更新(降順)': 'updated_at desc', '更新(昇順)': 'updated_at asc', '販売金額(昇順)': 'sale_price desc' , '販売金額(降順)': 'sale_price asc', '利益(昇順)': 'profit_price desc' , '利益(降順)': 'profit_price asc' },
+  <%= f.select :sorts, {'並び替え': 'id desc', '更新(降順)': 'updated_at desc', '更新(昇順)': 'updated_at asc', '販売金額(昇順)': 'sale_price asc' , '販売金額(降順)': 'sale_price desc', '利益(昇順)': 'profit_price asc' , '利益(降順)': 'profit_price desc' },
    { selected: params[:q][:sorts] },{ class:"sort-form"} %>
   <%= f.submit '並び替え実行', class:"sort-button" %>
 </div>
