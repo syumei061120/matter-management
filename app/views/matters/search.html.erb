@@ -1,14 +1,14 @@
 <%= render "shared/header" %>
 <div class="matter-information">
   <div class="search-sidebar">
-    <%= search_form_for @p, url:search_matters_path, class: 'search-form' do |f| %>
+    <%= search_form_for @q, url:search_matters_path, class: 'search-form' do |f| %>
     <%= render partial: "shared/matter_search_form", locals: {f: f}%>
   </div>
   <div class="search-main">
 
     <% if @matters.length !=0 %>
-    <% @matters.each do |result| %>
-    <%= render partial: "shared/matter_list", locals: {matter: result}%>
+    <% @matters.each do |matter| %>
+    <%= render partial: "shared/matter_list", locals: {matter: matter}%>
     <% end %>
     <% else %>
     該当する商品はありません

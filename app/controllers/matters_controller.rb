@@ -54,15 +54,19 @@ class MattersController < ApplicationController
     @priority_id = Priority.where.not(id:0)
     @reliability_id =Reliability.where.not(id:0)
     @progress_id =Progress.where.not(id:0)
-    if params[:q].present?
-    @p = Matter.ransack(params[:q]) 
-    @matters = @p.result
+    if params[:commit] == "リセット"
+      @q = Matter.ransack() 
+      @matters = @q.result
     else
-      params[:q] = { sorts: 'id desc' }
-    @p = Matter.ransack() 
-    @matters = Matter.all.order(updated_at: 'DESC')
+      if params[:q].present?
+        @q = Matter.ransack(params[:q]) 
+        @matters = @q.result
+      else
+        params[:q] = { sorts: 'id desc' }
+        @q = Matter.ransack() 
+        @matters = @q.result
+      end
     end
-
   end
 
   def destroy
@@ -96,4 +100,5 @@ class MattersController < ApplicationController
   def matter_find
     @matter = Matter.find(params[:id])
   end
+
 end

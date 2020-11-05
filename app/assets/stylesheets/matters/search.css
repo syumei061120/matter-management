@@ -8,9 +8,23 @@
 .search-main {
   height: 100%;
   margin: 0 auto;
-  padding: 20px 0 0 2vw;
+  padding: 20px 2vw 0 2vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.search-main::before {
+  display: block;
+  content: "";
+  width: 270px;
+  order: 1;
+  margin: 0 1.5vw 20px;
+}
+
+.search-main::after {
+  display: block;
+  content: "";
+  width: 270px;
+  margin: 0 1.5vw 20px;
 }
