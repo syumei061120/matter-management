@@ -28,19 +28,12 @@
   border-radius: 4px;
 }
 
-.search-form-middle,
-.search-form-high {
+.search-form {
   width: 100%;
   font-size: 14px;
+  margin-bottom: 20px;
 }
 
-.search-form-middle {
-  height: 70px;
-}
-
-.search-form-high {
-  height: 110px;
-}
 
 .search-form-small,
 .search-form-medium,
@@ -48,18 +41,17 @@
   height: 30px;
   border: solid grey 1px;
   border-radius: 4px;
+  margin-bottom: 7px;
 }
 
 .search-form-small {
   width: 30%;
   font-size: 12px;
-  margin-bottom: 7px;
   padding-left: 5px;
 }
 
 .search-form-medium {
   width: 50%;
-  margin-bottom: 7px;
   padding-left: 10px;
 }
 
@@ -89,4 +81,34 @@
   height: 40px;
   border-radius: 4px;
   margin: 20px 50px 0;
+}
+
+.form-checks {
+  width: 240px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-check-small {
+  height: 20px;
+  width: 70px;
+  margin: 0 5px 5px 0;
+}
+
+.form-check-large {
+  height: 20px;
+  width: 110px;
+  margin: 0 5px 5px 0;
+}
+
+.form-check-label {
+  line-height: 20px;
+  font-size: 14px;
+  display: flex;
+}
+
+.form-check-input {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
 }
