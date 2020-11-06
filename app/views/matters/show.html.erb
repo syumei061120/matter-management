@@ -6,8 +6,8 @@
     <table class="matter-information-table">
       <tr class="matter-information-table-row-high">
         <th>案件詳細</th>
-        <td>
-          <p class="overflow"><%= @matter.matter_explain %></p>
+        <td class="overflow">
+          <%= simple_format(@matter.matter_explain) %>
         </td>
       </tr>
       <tr class="matter-information-table-row-low">

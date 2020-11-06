@@ -63,7 +63,7 @@
   border-top: solid 1px grey;
 }
 
-.overflow {
+.overflow p {
   overflow: auto;
   height: 90px;
 }
