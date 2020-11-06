@@ -57,16 +57,26 @@ class MattersController < ApplicationController
     if params[:commit] == "リセット"
       @q = Matter.ransack() 
       @matters = @q.result
-    else
-      if params[:q].present?
-        @q = Matter.ransack(params[:q]) 
+    elsif params[:user_id].present?
+      user = User.find(params[:user_id])
+      params[:q] = { user_family_name_or_user_first_name_cont: user.family_name + user.first_name }
+      @matters = Matter.where(user_id: user.id)
+      @q = Matter.ransack(params[:q]) 
+    elsif params[:q].present?
+      if params[:q][:user_family_name_or_user_first_name_cont].present?
+        users = User.where('concat(family_name, first_name) LIKE(?)', "%#{params[:q][:user_family_name_or_user_first_name_cont]}%")
+        matters = Matter.where(user_id: users.ids)
+        @q = matters.ransack(params[:q]) 
         @matters = @q.result
       else
-        params[:q] = { sorts: 'id desc' }
-        @q = Matter.ransack() 
+        @q = Matter.ransack(params[:q]) 
         @matters = @q.result
       end
-    end
+    else
+      params[:q] = { sorts: 'id desc' }
+      @q = Matter.ransack() 
+      @matters = @q.result
+      end
   end
 
   def destroy
