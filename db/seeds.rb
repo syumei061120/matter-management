@@ -4,7 +4,7 @@ toyotomi = User.create(family_name: '豊臣', first_name: '秀吉', family_name_
 tokugawa = User.create(family_name: '徳川', first_name: '家康', family_name_kana: 'トクガワ', first_name_kana: 'イエヤス', administrator_id: 1, email: 'tokugawa@tokugawa.com', password: 'tokugawa1234', password_confirmation: 'tokugawa1234')
 
 [takeda, oda, toyotomi, tokugawa].each do |user|
-  user.user_image.attach(io: File.open('app/assets/images/sample1.png'), filename: 'sample1.png', content_type:'image/png')
+  user.user_image.attach(io: File.open('public/images/sample1.png'), filename: 'sample1.png', content_type:'image/png')
   user.save
 end
 
@@ -28,7 +28,8 @@ Matter.create(
   user_id: 1,
   sales_staff_id: 1,
   matter_name: '土佐社へPCキッティング',
-  matter_explain: '土佐社のPC入れ替えに伴い、100台のパソコンキッティング案件\r\n',
+  matter_explain: '土佐社のPC入れ替えに伴い、100台のパソコンキッティング案件
+                   〇〇キッティングセンターで実施予定',
   product: 'キッティングサービス',
   sale_price: 30000,
   profit_price: 2222,
@@ -48,8 +49,8 @@ Matter.create(
   profit_price: nil,
   sale_time: '2021-2-1',
   priority_id: 1,
-  reliability_id: 3,
-  progress_id: 2,
+  reliability_id: 4,
+  progress_id: 5,
   occasion: 'ホームページからの問合せ',
 )
 Matter.create(
@@ -62,8 +63,8 @@ Matter.create(
   profit_price: 10000,
   sale_time: '2021-3-1',
   priority_id: 3,
-  reliability_id: 1,
-  progress_id: 1,
+  reliability_id: 4,
+  progress_id: 4,
   occasion: '担当営業からの相談',
 )
 Matter.create(
@@ -75,7 +76,7 @@ Matter.create(
   sale_price: 30900,
   profit_price: 2000,
   sale_time: '2021-4-1',
-  priority_id: 2,
+  priority_id: 1,
   reliability_id: 1,
   progress_id: 2,
   occasion: '担当営業からの相談',
@@ -89,8 +90,8 @@ Matter.create(
   sale_price: 200000,
   profit_price: 40000,
   sale_time: '2021-5-1',
-  priority_id: 2,
-  reliability_id: 3,
+  priority_id: 1,
+  reliability_id: 5,
   progress_id: 2,
   occasion: '担当営業からの相談',
 )
@@ -104,8 +105,8 @@ Matter.create(
   profit_price: nil,
   sale_time: '2021-6-1',
   priority_id: 3,
-  reliability_id: 2,
-  progress_id: 2,
+  reliability_id: 6,
+  progress_id: 1,
   occasion: '担当営業からの相談',
 )
 Matter.create(
@@ -118,8 +119,8 @@ Matter.create(
   profit_price: nil,
   sale_time: '2021-7-1',
   priority_id: 3,
-  reliability_id: 2,
-  progress_id: 2,
+  reliability_id: 4,
+  progress_id: 4,
   occasion: '担当営業からの相談',
 )
 Matter.create(
@@ -133,7 +134,7 @@ Matter.create(
   sale_time: '2021-8-1',
   priority_id: 2,
   reliability_id: 5,
-  progress_id: 2,
+  progress_id: 5,
   occasion: 'ホームページからの問合せ',
 )
 Matter.create(
@@ -161,8 +162,8 @@ Matter.create(
   profit_price: 2222,
   sale_time: '2021-10-1',
   priority_id: 2,
-  reliability_id: 6,
-  progress_id: 4,
+  reliability_id: 3,
+  progress_id: 3,
   occasion: '担当営業からの相談',
 )
 
@@ -184,5 +185,352 @@ Client.create!(
 10.times do |num1|
   10.times do |num2|
     MatterClient.create(matter_id: "#{num1+1}", client_id: "#{num2+1}" )
+  end
+end
+
+3.times do |num1|
+  num2 = 1
+  record1 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2020-12-1 13:00:00",
+    end_time: "2020-12-1 14:00",
+    explain: "担当営業と訪問し、先方の担当者（長宗我部様）にご提案
+              大きな課題は金額面で営業と調整が必要
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  record2 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2020-12-8 13:00",
+    end_time: "2020-12-8 13:00",
+    explain: "担当営業と訪問し、先方の責任者（藤堂様）と先週お会いした（長宗我部様）にご提案
+              先週の持ち帰った事項をご説明
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  record3 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2020-12-15 13:00",
+    end_time: "2020-12-15 14:00",
+    explain: "担当営業と訪問し、藤堂様、長宗我部様に先週の持ち帰った事項のご説明と
+              概算見積もりを提示
+              その後、詳細な要件を打ち合わせ
+              次回訪問時に正式見積もり、トライアル詳細を提示
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  record4 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2020-12-22 13:00",
+    end_time: "2020-12-22 14:00",
+    explain: "担当営業と訪問し、藤堂様、長宗我部様に正式見積もり提示
+              金額は概ね問題が無いとのこと
+              来週からトライアル開始
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  record5 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2021-1-12 13:00",
+    end_time: "2021-1-12 14:00",
+    explain: "担当営業と訪問し、藤堂様、長宗我部様に正式見積もり提示
+              金額は概ね問題が無いとのことで社内で稟議にかけていただく
+              来週からトライアル開始
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  record6 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2021-1-26 13:00",
+    end_time: "2021-1-26 14:00",
+    explain: "担当営業と訪問し、藤堂様、長宗我部様にトライアルのヒアリング
+              トライアルの結果は良好で、社内稟議待ち
+              トライアルは来週で終了を案内
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  record7 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2021-2-2 13:00",
+    end_time: "2021-2-2 14:00",
+    explain: "担当営業から受注確定と連絡あり",
+  )
+  
+  records = [record1,record2,record3,record4,record5,record6,record7]
+  records.each do |record|
+    num = rand(5)
+    num.times do |i|
+      record.files.attach(io: File.open('public/files/sample1.rtf'), filename: 'sample1.rtf', content_type:'text/rtf')
+    end
+    record.save
+  end
+end
+
+3.upto(5) do |num1|
+  num2 = 2
+  record1 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2020-12-1 13:00:00",
+    end_time: "2020-12-1 14:00",
+    explain: "担当営業と訪問し、先方の担当者（長宗我部様）にご提案
+              大きな課題は金額面で営業と調整が必要
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  record2 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2020-12-8 13:00",
+    end_time: "2020-12-8 13:00",
+    explain: "担当営業と訪問し、先方の責任者（藤堂様）と先週お会いした（長宗我部様）にご提案
+              先週の持ち帰った事項をご説明
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  record3 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2020-12-15 13:00",
+    end_time: "2020-12-15 14:00",
+    explain: "担当営業と訪問し、藤堂様、長宗我部様に先週の持ち帰った事項のご説明と
+              概算見積もりを提示
+              その後、詳細な要件を打ち合わせ
+              次回訪問時に正式見積もり、トライアル詳細を提示
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  records = [record1,record2,record3]
+  records.each do |record|
+    num = rand(3)
+    num.times do |i|
+      record.files.attach(io: File.open('public/files/sample1.rtf'), filename: 'sample1.rtf', content_type:'text/rtf')
+    end
+    record.save
+  end
+end
+
+6.upto(7) do |num1|
+  num2 = 3
+  record1 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2020-12-1 13:00:00",
+    end_time: "2020-12-1 14:00",
+    explain: "担当営業と訪問し、先方の担当者（長宗我部様）にご提案
+              大きな課題は金額面で営業と調整が必要
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  record2 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2020-12-8 13:00",
+    end_time: "2020-12-8 13:00",
+    explain: "担当営業と訪問し、先方の責任者（藤堂様）と先週お会いした（長宗我部様）にご提案
+              先週の持ち帰った事項をご説明
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  record3 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2020-12-15 13:00",
+    end_time: "2020-12-15 14:00",
+    explain: "担当営業と訪問し、藤堂様、長宗我部様に先週の持ち帰った事項のご説明と
+              概算見積もりを提示
+              その後、詳細な要件を打ち合わせ
+              次回訪問時に正式見積もり、トライアル詳細を提示
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  record4 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2020-12-22 13:00",
+    end_time: "2020-12-22 14:00",
+    explain: "担当営業と訪問し、藤堂様、長宗我部様に正式見積もり提示
+              金額は概ね問題が無いとのこと
+              来週からトライアル開始
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  record5 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2021-1-12 13:00",
+    end_time: "2021-1-12 14:00",
+    explain: "担当営業と訪問し、藤堂様、長宗我部様に正式見積もり提示
+              金額は概ね問題が無いとのことで社内で稟議にかけていただく
+              来週からトライアル開始
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  record6 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2021-1-26 13:00",
+    end_time: "2021-1-26 14:00",
+    explain: "担当営業と訪問し、藤堂様、長宗我部様にトライアルのヒアリング
+              トライアルの結果は良好で、社内稟議待ち
+              トライアルは来週で終了を案内
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  record7 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2021-2-2 13:00",
+    end_time: "2021-2-2 14:00",
+    explain: "担当営業から受注確定と連絡あり",
+  )
+
+  records = [record1,record2,record3,record4,record5,record6,record7]
+  records.each do |record|
+    num = rand(5)
+    num.times do |i|
+      record.files.attach(io: File.open('public/files/sample1.rtf'), filename: 'sample1.rtf', content_type:'text/rtf')
+    end
+    record.save
+  end
+end
+8.upto(9) do |num1|
+  num2 = 4
+  record1 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2020-12-1 13:00:00",
+    end_time: "2020-12-1 14:00",
+    explain: "担当営業と訪問し、先方の担当者（長宗我部様）にご提案
+              大きな課題は金額面で営業と調整が必要
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  record2 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2020-12-8 13:00",
+    end_time: "2020-12-8 13:00",
+    explain: "担当営業と訪問し、先方の責任者（藤堂様）と先週お会いした（長宗我部様）にご提案
+              先週の持ち帰った事項をご説明
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  record3 = BusinessTalkRecord.create(
+    user_id: num2,
+    matter_id: "#{num1+1}",
+    start_time: "2020-12-15 13:00",
+    end_time: "2020-12-15 14:00",
+    explain: "担当営業と訪問し、藤堂様、長宗我部様に先週の持ち帰った事項のご説明と
+              概算見積もりを提示
+              その後、詳細な要件を打ち合わせ
+              次回訪問時に正式見積もり、トライアル詳細を提示
+              以下、議事メモ
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇〇〇
+              ・〇〇〇〇〇〇
+              ・〇〇〇〇〇〇〇〇〇〇〇〇",
+  )
+  records = [record1,record2,record3]
+  records.each do |record|
+    num = rand(3)
+    num.times do |i|
+      record.files.attach(io: File.open('public/files/sample1.rtf'), filename: 'sample1.rtf', content_type:'text/rtf')
+    end
+    record.save
   end
 end
