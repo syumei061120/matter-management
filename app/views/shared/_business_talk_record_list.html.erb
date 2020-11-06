@@ -17,12 +17,12 @@
   <tr class="matter-information-table-row-high">
     <th>商談内容</th>
     <td colspan="2">
-      <%= business_talk_record.explain %>
+      <%= simple_format(business_talk_record.explain) %>
     </td>
   </tr>
   <% if business_talk_record.files.present? %>
-  <% if business_talk_record.files.size >= 2 %>
-  <% files = business_talk_record.files.last(2) %>
+  <% if business_talk_record.files.size > 2 %>
+  <% files = business_talk_record.files.first(2) %>
   <% else %>
   <% files = business_talk_record.files.first(1) %>
   <% end %>
