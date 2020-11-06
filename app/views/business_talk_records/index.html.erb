@@ -24,7 +24,7 @@
       <tr class="matter-information-table-row-high">
         <th>商談内容</th>
         <td colspan="4">
-          <%= business_talk_record.explain %>
+          <%= simple_format(business_talk_record.explain) %>
         </td>
       </tr>
       <% if business_talk_record.files.present? %>
