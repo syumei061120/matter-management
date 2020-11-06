@@ -3,7 +3,9 @@
   <table class="matter-list-table">
     <tr>
       <th>
-        <%= image_tag current_user.user_image, class:"matter-list-icon" %>
+        <%= link_to user_path(matter.user_id) do%>
+        <%= image_tag matter.user.user_image, class:"matter-list-icon" %>
+        <% end %>
       </th>
       <td>
         <%= matter.matter_name.truncate(20) %>
