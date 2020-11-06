@@ -18,7 +18,7 @@
       <%= link_to "商談記録一覧", matter_business_talk_records_path(matter.id), class:"sidebar-link", id:"business_talk_record-list-link" %>
     </li>
     </li>
-    <% if matter.user.administrator == 2 %>
+    <% if matter.user.administrator_id == 2 %>
     <li><%= link_to "案件削除", matter_path(matter.id), method: :delete, data: {confirm: "削除しますか？"}, class:"sidebar-link" %>
       <% end %>
     </li>
