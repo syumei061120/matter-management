@@ -1,10 +1,10 @@
 <div class="sidebar">
   <ul>
     <li>
-      <%= link_to "基本情報", user_path(params[:id]), class:"sidebar-link" %></li>
+      <%= link_to "基本情報", user_path(params[:id]), class:"sidebar-link", id:"user-information-link" %></li>
     </li>
     <li>
-      <%= link_to "案件一覧", root_path, class:"sidebar-link" %></li>
+      <%= link_to "案件一覧", search_matters_path(user_id: @user.id),class:"sidebar-link" %></li>
     </li>
     <% if(current_user == @user) %>
     <li><%= link_to "ユーザー情報編集", edit_user_registration_path, class:"sidebar-link" %></li>
