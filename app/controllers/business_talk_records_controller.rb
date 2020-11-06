@@ -30,7 +30,7 @@ class BusinessTalkRecordsController < ApplicationController
 
   def update
     @business_talk_record = BusinessTalkRecord.find(params[:id])
-    if params[:business_talk_record][:start_time] > params[:business_talk_record][:end]
+    if params[:business_talk_record][:start_time] > params[:business_talk_record][:end_time]
       flash[:incorrect_time] = '開始時刻は終了時刻より前の日時を設定して下さい'
       render :edit and return
     end
@@ -42,7 +42,7 @@ class BusinessTalkRecordsController < ApplicationController
     end
     if params[:business_talk_record][:files].present?
       @business_talk_record.files.attach(params[:business_talk_record][:files])
-      @business_talk_record.assign_attributes(start_time: params[:business_talk_record][:start_time], end_time: params[:business_talk_record][:end], explain: params[:business_talk_record][:explain])
+      @business_talk_record.assign_attributes(start_time: params[:business_talk_record][:start_time], end_time: params[:business_talk_record][:end_time], explain: params[:business_talk_record][:explain])
       @business_talk_record.save
       redirect_to matter_business_talk_records_path
     else
