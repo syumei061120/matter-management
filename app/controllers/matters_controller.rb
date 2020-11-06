@@ -65,9 +65,8 @@ class MattersController < ApplicationController
     elsif params[:q].present?
       if params[:q][:user_family_name_or_user_first_name_cont].present?
         users = User.where('concat(family_name, first_name) LIKE(?)', "%#{params[:q][:user_family_name_or_user_first_name_cont]}%")
-        matters = Matter.where(user_id: users.ids)
-        @q = matters.ransack(params[:q]) 
-        @matters = @q.result
+        @matters = Matter.where(user_id: users.ids)
+        @q = Matter.ransack(params[:q]) 
       else
         @q = Matter.ransack(params[:q]) 
         @matters = @q.result
