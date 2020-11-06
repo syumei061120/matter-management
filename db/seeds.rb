@@ -67,7 +67,7 @@ Matter.create(
   occasion: '担当営業からの相談',
 )
 Matter.create(
-  user_id: 1,
+  user_id: 2,
   sales_staff_id: 4,
   matter_name: '蝦夷　＃＃提案',
   matter_explain: '〇〇〇〇〇〇〇〇〇〇',
@@ -81,7 +81,7 @@ Matter.create(
   occasion: '担当営業からの相談',
 )
 Matter.create(
-  user_id: 1,
+  user_id: 2,
   sales_staff_id: 5,
   matter_name: '書類電子化 尾張社',
   matter_explain: '書類電子化の取り組み提案',
@@ -95,7 +95,7 @@ Matter.create(
   occasion: '担当営業からの相談',
 )
 Matter.create(
-  user_id: 1,
+  user_id: 2,
   sales_staff_id: 6,
   matter_name: 'RPA　尾張社への提案',
   matter_explain: 'RPA便利です',
@@ -109,7 +109,7 @@ Matter.create(
   occasion: '担当営業からの相談',
 )
 Matter.create(
-  user_id: 1,
+  user_id: 3,
   sales_staff_id: 7,
   matter_name: 'RPA　尾張社への提案',
   matter_explain: 'RPA便利です',
@@ -123,7 +123,7 @@ Matter.create(
   occasion: '担当営業からの相談',
 )
 Matter.create(
-  user_id: 1,
+  user_id: 3,
   sales_staff_id: 8,
   matter_name: 'ディスプレイ　三河社への提案',
   matter_explain: 'ディスプレイ販売',
@@ -137,7 +137,7 @@ Matter.create(
   occasion: 'ホームページからの問合せ',
 )
 Matter.create(
-  user_id: 1,
+  user_id: 4,
   sales_staff_id: 9,
   matter_name: '筑前社へのAV機器提案',
   matter_explain:
@@ -152,7 +152,7 @@ Matter.create(
   occasion: '担当営業からの相談',
 )
 Matter.create(
-  user_id: 1,
+  user_id: 4,
   sales_staff_id: 10,
   matter_name: '尾張社へPCキッティング',
   matter_explain: '尾張社のPC入れ替えに伴い、100台のパソコンキッティング案件\r\n',
