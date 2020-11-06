@@ -1,7 +1,7 @@
 class BusinessTalkRecordsController < ApplicationController
   def index
     @matter = Matter.find(params[:matter_id])
-    @business_talk_records = BusinessTalkRecord.where(matter_id: params[:matter_id]).order(end: 'DESC')
+    @business_talk_records = BusinessTalkRecord.where(matter_id: params[:matter_id]).order(end_time: 'DESC')
   end
 
   def new
@@ -12,7 +12,7 @@ class BusinessTalkRecordsController < ApplicationController
     @business_talk_record = BusinessTalkRecord.new(business_talk_record_params)
     render :new and return unless @business_talk_record.valid?
 
-    if params[:business_talk_record][:start] > params[:business_talk_record][:end]
+    if params[:business_talk_record][:start_time] > params[:business_talk_record][:end_time]
       flash[:incorrect_time] = '開始時刻は終了時刻より前の日時を設定して下さい'
       render :new
     else
@@ -30,7 +30,7 @@ class BusinessTalkRecordsController < ApplicationController
 
   def update
     @business_talk_record = BusinessTalkRecord.find(params[:id])
-    if params[:business_talk_record][:start] > params[:business_talk_record][:end]
+    if params[:business_talk_record][:start_time] > params[:business_talk_record][:end]
       flash[:incorrect_time] = '開始時刻は終了時刻より前の日時を設定して下さい'
       render :edit and return
     end
@@ -42,7 +42,7 @@ class BusinessTalkRecordsController < ApplicationController
     end
     if params[:business_talk_record][:files].present?
       @business_talk_record.files.attach(params[:business_talk_record][:files])
-      @business_talk_record.assign_attributes(start: params[:business_talk_record][:start], end: params[:business_talk_record][:end], explain: params[:business_talk_record][:explain])
+      @business_talk_record.assign_attributes(start_time: params[:business_talk_record][:start_time], end_time: params[:business_talk_record][:end], explain: params[:business_talk_record][:explain])
       @business_talk_record.save
       redirect_to matter_business_talk_records_path
     else
@@ -69,6 +69,6 @@ class BusinessTalkRecordsController < ApplicationController
   private
 
   def business_talk_record_params
-    params.require(:business_talk_record).permit(:start, :end, :explain, files: []).merge(user_id: current_user.id, matter_id: params[:matter_id])
+    params.require(:business_talk_record).permit(:start_time, :end_time, :explain, files: []).merge(user_id: current_user.id, matter_id: params[:matter_id])
   end
 end

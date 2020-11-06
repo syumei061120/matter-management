@@ -14,7 +14,7 @@
         </td>
         <th>終了時刻</th>
         <td>
-          <%= business_talk_record.end_timestrftime("%Y-%m-%d %H:%M") %>
+          <%= business_talk_record.end_time.strftime("%Y-%m-%d %H:%M") %>
         </td>
         <td class="link-td">
           <%= link_to image_tag("edit-icon"), edit_matter_business_talk_record_path(matter_id: @matter.id, id: business_talk_record.id), class:"client-edit-link" %>
