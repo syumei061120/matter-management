@@ -82,5 +82,27 @@
   <%= f.label :user_family_name_or_user_first_name, "担当者", class:"search-title" %>
   <%= f.search_field :user_family_name_or_user_first_name_cont, class: "search-form-large", placeholder:"キーワードを入力"  %>
 </div>
+<div class="search-form">
+  <p class="search-accordion-button">▽営業検索フォーム表示</p>
+  <div class="search-sales-form">
+    <%= f.label :sales_staff_department, "部署・役職", class:"search-title" %>
+    <%= f.search_field :sales_staff_department_cont, class: "search-form-large", placeholder:"キーワードを入力"  %>
+    <%= f.label :sales_staff_staff, "部署・役職", class:"search-title" %>
+    <%= f.search_field :sales_staff_staff_cont, class: "search-form-large", placeholder:"キーワードを入力"  %>
+  </div>
+</div>
+<div class="search-form">
+  <p class="search-accordion-button">▽顧客検索フォーム表示</p>
+  <div class="search-sales-form">
+    <%= f.label :clients_company, "会社", class:"search-title" %>
+    <%= f.search_field :clients_company_cont, class: "search-form-large", placeholder:"キーワードを入力"  %>
+    <%= f.label :clients_department, "部署", class:"search-title" %>
+    <%= f.search_field :clients_department_cont, class: "search-form-large", placeholder:"キーワードを入力"  %>
+    <%= f.label :clients_name, "担当者", class:"search-title" %>
+    <%= f.search_field :clients_name_cont, class: "search-form-large", placeholder:"キーワードを入力"  %>
+
+  </div>
+</div>
+
 <%= f.submit '検索', class:"search-button" %>
 <%= f.submit 'リセット', class:"search-button" %>
