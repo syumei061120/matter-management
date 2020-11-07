@@ -2,7 +2,7 @@ class MattersController < ApplicationController
   before_action :matter_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @matters = Matter.all.order(updated_at: 'DESC')
+    @matters = Matter.includes(:user).all.order(updated_at: 'DESC')
   end
 
   def new
