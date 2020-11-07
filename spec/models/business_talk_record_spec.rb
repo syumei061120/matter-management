@@ -29,12 +29,11 @@ RSpec.describe BusinessTalkRecord, type: :model do
       expect(@business_talk_record.errors.full_messages).to include('終了時刻を設定してください')
     end
 
-        # 商談内容が入力できていない
+    # 商談内容が入力できていない
     it 'explainが空では登録できないこと' do
       @business_talk_record.explain = nil
       @business_talk_record.valid?
       expect(@business_talk_record.errors.full_messages).to include('商談内容を入力してください')
     end
-
   end
 end

@@ -51,31 +51,31 @@ class MattersController < ApplicationController
   end
 
   def search
-    @priority_id = Priority.where.not(id:0)
-    @reliability_id =Reliability.where.not(id:0)
-    @progress_id =Progress.where.not(id:0)
-    if params[:commit] == "リセット"
-      @q = Matter.ransack() 
+    @priority_id = Priority.where.not(id: 0)
+    @reliability_id = Reliability.where.not(id: 0)
+    @progress_id = Progress.where.not(id: 0)
+    if params[:commit] == 'リセット'
+      @q = Matter.ransack
       @matters = @q.result
     elsif params[:user_id].present?
       user = User.find(params[:user_id])
       params[:q] = { user_family_name_or_user_first_name_cont: user.family_name + user.first_name }
       @matters = Matter.where(user_id: user.id)
-      @q = Matter.ransack(params[:q]) 
+      @q = Matter.ransack(params[:q])
     elsif params[:q].present?
       if params[:q][:user_family_name_or_user_first_name_cont].present?
         users = User.where('concat(family_name, first_name) LIKE(?)', "%#{params[:q][:user_family_name_or_user_first_name_cont]}%")
         @matters = Matter.where(user_id: users.ids)
-        @q = Matter.ransack(params[:q]) 
+        @q = Matter.ransack(params[:q])
       else
-        @q = Matter.ransack(params[:q]) 
+        @q = Matter.ransack(params[:q])
         @matters = @q.result
       end
     else
       params[:q] = { sorts: 'id desc' }
-      @q = Matter.ransack() 
+      @q = Matter.ransack
       @matters = @q.result
-      end
+    end
   end
 
   def destroy
@@ -95,7 +95,7 @@ class MattersController < ApplicationController
   private
 
   def matter_params
-    params.require(:matter).permit(:matter_name, :matter_explain, :product, :sale_price, :profit_price, :sale_time, :priority_id, :reliability_id, :progress_id, :occasion ).merge(user_id: current_user.id)
+    params.require(:matter).permit(:matter_name, :matter_explain, :product, :sale_price, :profit_price, :sale_time, :priority_id, :reliability_id, :progress_id, :occasion).merge(user_id: current_user.id)
   end
 
   def client_params
@@ -109,5 +109,4 @@ class MattersController < ApplicationController
   def matter_find
     @matter = Matter.find(params[:id])
   end
-
 end

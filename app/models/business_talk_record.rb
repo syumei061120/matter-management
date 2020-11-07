@@ -3,9 +3,9 @@ class BusinessTalkRecord < ApplicationRecord
   belongs_to :user
   belongs_to :matter
 
-  with_options presence: { message: 'を設定してください' }do
+  with_options presence: { message: 'を設定してください' } do
     validates :start_time
     validates :end_time
   end
-  validates :explain, presence: true 
+  validates :explain, presence: true
 end

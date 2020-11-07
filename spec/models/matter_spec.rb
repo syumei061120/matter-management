@@ -15,12 +15,12 @@ RSpec.describe Matter, type: :model do
       @matter.valid?
       expect(@matter).to be_valid
     end
-   it '販売金額見込みが空でも登録できること' do
+    it '販売金額見込みが空でも登録できること' do
       @matter.sale_price = nil
       @matter.valid?
       expect(@matter).to be_valid
     end
-   it '利益見込みが空でも登録できること' do
+    it '利益見込みが空でも登録できること' do
       @matter.profit_price = nil
       @matter.valid?
       expect(@matter).to be_valid
@@ -128,6 +128,5 @@ RSpec.describe Matter, type: :model do
       @matter.valid?
       expect(@matter.errors.full_messages).to include('きっかけを入力してください')
     end
-
   end
 end
