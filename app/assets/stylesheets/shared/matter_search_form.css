@@ -112,3 +112,16 @@
   width: 20px;
   margin-right: 5px;
 }
+
+.search-accordion-button {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.search-sales-form {
+  overflow: hidden;
+  height: 0;
+  transition: .4s ease-out;
+}
