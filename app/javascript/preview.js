@@ -1,4 +1,4 @@
-if (document.URL.match(/sign_up/) || document.URL.match(/users$/) || document.URL.match(/edit$/)) {
+if (document.URL.match(/sign_up$/) || document.URL.match(/users$/) || document.URL.match(/edit$/)) {
   document.addEventListener('DOMContentLoaded', function(){
     const UserImageList = document.getElementById('user-image-list');
 

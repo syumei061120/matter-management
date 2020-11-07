@@ -1,18 +1,18 @@
-if (document.URL.match(/users/)){
+if (document.URL.match(/users\/(\d+)$/)){
   document.addEventListener('DOMContentLoaded', function () {
     const userInformationLink = document.getElementById("user-information-link")
     userInformationLink.setAttribute("style", "color:#00ffff;")
   });
 }
 
-if (document.URL.match(/matters/)) {
+if (document.URL.match(/matters\/(\d+)$/)) {
   document.addEventListener('DOMContentLoaded', function () {
     const matterInformation = document.getElementById("matter-information-link");
     matterInformation.setAttribute("style", "color:#00ffff;");
   });
 }
 
-if (document.URL.match(/clients/)) {
+if (document.URL.match(/clients$/)) {
   document.addEventListener('DOMContentLoaded', function () {
     const matterInformation = document.getElementById("matter-information-link");
     const clientListLink = document.getElementById("client-list-link");
