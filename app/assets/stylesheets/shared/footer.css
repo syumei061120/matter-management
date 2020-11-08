@@ -1,3 +1,10 @@
-.ad-footer-contents {
+.footer-main {
   background-color: black;
+}
+
+.copyright {
+  width: 100%;
+  line-height: 10vh;
+  color: #fff;
+  text-align: center;
 }
