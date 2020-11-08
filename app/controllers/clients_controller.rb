@@ -3,6 +3,7 @@ class ClientsController < ApplicationController
   before_action :client_find, only: [:edit, :update, :destroy]
   before_action :client_first, only: [:create, :update]
   before_action :matter_client_find, only: [:create, :update]
+  after_action :updated_daytime_edit, only: [:create, :update]
 
   def index
     @matter_clients = MatterClient.where(matter_id: params[:matter_id])
@@ -92,5 +93,11 @@ class ClientsController < ApplicationController
 
   def client_first
     @client_first = Client.where(company: params[:client][:company], department: params[:client][:department], name: params[:client][:name]).first_or_initialize
+  end
+
+  def updated_daytime_edit
+    require "date"
+    @matter = Matter.find(params[:matter_id])
+    @matter.update(updated_daytime: DateTime.now)
   end
 end

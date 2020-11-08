@@ -1,4 +1,6 @@
 class SalesStaffsController < ApplicationController
+  after_action :updated_daytime_edit, only: [:update]
+
   def edit
     @sales_staff = SalesStaff.find(params[:id])
     @matter = Matter.find(params[:matter_id])
@@ -25,5 +27,11 @@ class SalesStaffsController < ApplicationController
 
   def sales_staff_params
     params.require(:sales_staff).permit(:department, :staff)
+  end
+
+  def updated_daytime_edit
+    require "date"
+    @matter = Matter.find(params[:matter_id])
+    @matter.update(updated_daytime: DateTime.now)
   end
 end

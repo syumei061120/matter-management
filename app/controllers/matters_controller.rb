@@ -12,7 +12,6 @@ class MattersController < ApplicationController
   def create
     @matter = Matter.new(matter_params)
     render :new and return unless @matter.valid?
-
     session['matter_data'] = { matter: @matter.attributes }
     @client = Client.new
     render :new_client
@@ -95,7 +94,8 @@ class MattersController < ApplicationController
   private
 
   def matter_params
-    params.require(:matter).permit(:matter_name, :matter_explain, :product, :sale_price, :profit_price, :sale_time, :priority_id, :reliability_id, :progress_id, :occasion).merge(user_id: current_user.id)
+    require "date"
+    params.require(:matter).permit(:matter_name, :matter_explain, :product, :sale_price, :profit_price, :sale_time, :priority_id, :reliability_id, :progress_id, :occasion).merge(user_id: current_user.id, updated_daytime: DateTime.now)
   end
 
   def client_params
