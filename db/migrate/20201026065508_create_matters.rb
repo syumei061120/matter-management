@@ -13,6 +13,7 @@ class CreateMatters < ActiveRecord::Migration[6.0]
       t.integer    :reliability_id,  null: false
       t.integer    :progress_id,     null: false
       t.string     :occasion,        null: false
+      t.datetime   :updated_daytime, null: false
       t.timestamps
     end
   end

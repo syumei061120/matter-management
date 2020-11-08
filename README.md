@@ -31,6 +31,8 @@
 | reliability_id        | int        | null: false                     |
 | progress_id           | int        | null: false                     |
 | occasion              | string     | null: false                     |
+| updated_daytime       | datetime   | null: false                     |
+
 
 ### Association
 

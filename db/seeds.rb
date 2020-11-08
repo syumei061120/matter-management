@@ -38,6 +38,7 @@ Matter.create(
   reliability_id: 6,
   progress_id: 4,
   occasion: '担当営業からの相談',
+  updated_daytime: "2020-12-1 13:00:00"
 )
 Matter.create(
   user_id: 1,
@@ -52,6 +53,7 @@ Matter.create(
   reliability_id: 4,
   progress_id: 5,
   occasion: 'ホームページからの問合せ',
+  updated_daytime: "2020-12-1 13:00:00"
 )
 Matter.create(
   user_id: 1,
@@ -66,6 +68,7 @@ Matter.create(
   reliability_id: 4,
   progress_id: 4,
   occasion: '担当営業からの相談',
+  updated_daytime: "2020-12-1 13:00:00"
 )
 Matter.create(
   user_id: 2,
@@ -80,6 +83,7 @@ Matter.create(
   reliability_id: 1,
   progress_id: 2,
   occasion: '担当営業からの相談',
+  updated_daytime: "2020-12-1 13:00:00"
 )
 Matter.create(
   user_id: 2,
@@ -94,6 +98,7 @@ Matter.create(
   reliability_id: 5,
   progress_id: 2,
   occasion: '担当営業からの相談',
+  updated_daytime: "2020-12-1 13:00:00"
 )
 Matter.create(
   user_id: 2,
@@ -108,6 +113,7 @@ Matter.create(
   reliability_id: 6,
   progress_id: 1,
   occasion: '担当営業からの相談',
+  updated_daytime: "2020-12-1 13:00:00"
 )
 Matter.create(
   user_id: 3,
@@ -122,6 +128,7 @@ Matter.create(
   reliability_id: 4,
   progress_id: 4,
   occasion: '担当営業からの相談',
+  updated_daytime: "2020-12-1 13:00:00"
 )
 Matter.create(
   user_id: 3,
@@ -136,6 +143,7 @@ Matter.create(
   reliability_id: 5,
   progress_id: 5,
   occasion: 'ホームページからの問合せ',
+  updated_daytime: "2020-12-1 13:00:00"
 )
 Matter.create(
   user_id: 4,
@@ -151,6 +159,7 @@ Matter.create(
   reliability_id: 3,
   progress_id: 2,
   occasion: '担当営業からの相談',
+  updated_daytime: "2020-12-1 13:00:00"
 )
 Matter.create(
   user_id: 4,
@@ -165,6 +174,7 @@ Matter.create(
   reliability_id: 3,
   progress_id: 3,
   occasion: '担当営業からの相談',
+  updated_daytime: "2020-12-1 13:00:00"
 )
 
 Client.create!(
