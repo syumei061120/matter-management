@@ -1,7 +1,10 @@
 <%= render "shared/header" %>
 <div class="top-main">
+  <div class="main-title">
+    最近10件の更新案件
+  </div>
   <div class="matter-lists">
-    <% @matters.first(8).each do |matter| %>
+    <% @matters.first(10).each do |matter| %>
     <%= render partial: "shared/matter_list", locals: {matter: matter}%>
     <%end%>
   </div>
