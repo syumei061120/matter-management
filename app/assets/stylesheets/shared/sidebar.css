@@ -18,8 +18,9 @@
   color: #fff;
   font-weight: 500;
   text-decoration: none;
+  display: block;
 }
 
 .sidebar-link:hover {
-  color: #f8665b;
+  color: #ff7f50
 }

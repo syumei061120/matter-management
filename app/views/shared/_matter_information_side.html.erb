@@ -1,27 +1,30 @@
 <div class="sidebar">
   <ul>
-    <li><%= link_to "案件情報", matter_path(matter.id), class:"sidebar-link", id:"matter-information-link" %></li>
+    <li>
+      <%= link_to "案件情報", matter_path(matter.id), class:"sidebar-link", id:"matter-information-link" %>
     </li>
-    <li><%= link_to "案件情報編集", edit_matter_path(matter.id), class:"sidebar-link" %></li>
+    <li>
+      <%= link_to "案件情報編集", edit_matter_path(matter.id), class:"sidebar-link" %></li>
     </li>
     <li>
       <%= link_to "担当営業情報編集", edit_matter_sales_staff_path(matter_id: matter.id, id: matter.sales_staff_id), class:"sidebar-link" %>
     </li>
+    <li>
+      <%= link_to "顧客情報追加", new_matter_client_path(matter.id), class:"sidebar-link" %></li>
     </li>
-    <li><%= link_to "顧客情報追加", new_matter_client_path(matter.id), class:"sidebar-link" %></li>
+    <li>
+      <%= link_to "顧客情報一覧", matter_clients_path(matter.id), class:"sidebar-link", id:"client-list-link" %></li>
     </li>
-    <li><%= link_to "顧客情報一覧", matter_clients_path(matter.id), class:"sidebar-link", id:"client-list-link" %></li>
-    </li>
-    <li><%= link_to "商談記録登録", new_matter_business_talk_record_path(matter.id), class:"sidebar-link" %></li>
+    <li>
+      <%= link_to "商談記録登録", new_matter_business_talk_record_path(matter.id), class:"sidebar-link" %></li>
     </li>
     <li>
       <%= link_to "商談記録一覧", matter_business_talk_records_path(matter.id), class:"sidebar-link", id:"business_talk_record-list-link" %>
     </li>
-    </li>
     <% if matter.user.administrator_id == 2 %>
-    <li><%= link_to "案件削除", matter_path(matter.id), method: :delete, data: {confirm: "削除しますか？"}, class:"sidebar-link" %>
+    <li>
+      <%= link_to "案件削除", matter_path(matter.id), method: :delete, data: {confirm: "削除しますか？"}, class:"sidebar-link" %>
       <% end %>
-    </li>
     </li>
   </ul>
   </ul>
