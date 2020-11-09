@@ -6,7 +6,7 @@
 }
 
 .matter-list {
-  width: 100%;
+  width: 250px;
   border-top: solid 15px #00ffff;
   background-color: #e0ffff;
   border-radius: 5px;
@@ -24,8 +24,8 @@
 
 .matter-list-table th {
   height: 30px;
-  width: 60px;
-  padding: 10px 5px 10px 10px;
+  width: 50px;
+  padding: 10px 5px;
   border-bottom: solid 0.5px rgb(207, 206, 206);
   font-size: 12px;
   color: #837f7f;
@@ -33,7 +33,7 @@
 }
 
 .matter-list-table td {
-  width: 170px;
+  width: 190px;
   padding: 10px;
   border-bottom: solid 0.5px rgb(207, 206, 206);
   color: #01a3a3;
@@ -45,6 +45,7 @@
 }
 
 .matter-create-time {
+  width: 250px;
   font-size: 10px;
   text-align: right;
   margin-top: 10px;
