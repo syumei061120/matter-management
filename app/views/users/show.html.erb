@@ -5,16 +5,16 @@
     <table class="user-information">
       <tr>
         <th rowspan="3">基本情報</th>
-        <td class="tabel-title">氏名</td>
-        <td class="tabel-data">：<%= @user.family_name%> <%= @user.first_name %></td>
+        <td class="table-title">氏名</td>
+        <td class="table-data">：<%= @user.family_name%> <%= @user.first_name %></td>
       </tr>
       <tr>
-        <td class="tabel-title">登録画像</td>
-        <td class="tabel-data"><%= image_tag @user.user_image %></td>
+        <td class="table-title">登録画像</td>
+        <td class="table-data"><%= image_tag @user.user_image %></td>
       </tr>
       <tr>
-        <td class="tabel-title_bottom">メールアドレス</td>
-        <td class="tabel-data_bottom">：<%= @user.email %></td>
+        <td class="table-title_bottom">メールアドレス</td>
+        <td class="table-data_bottom">：<%= @user.email %></td>
       </tr>
     </table>
   </div>

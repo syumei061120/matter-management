@@ -16,25 +16,25 @@
   border-right: solid 5px grey;
 }
 
-.tabel-title,
-.tabel-title_bottom {
+.table-title,
+.table-title_bottom {
   width: 150px;
   padding: 10px;
   background-color: #fff;
 }
 
-.tabel-title {
+.table-title {
   border-bottom: dotted 1px grey;
 }
 
-.tabel-data,
-.tabel-data_bottom {
+.table-data,
+.table-data_bottom {
   width: 400px;
   padding: 10px;
   background-color: #fff;
 }
 
-.tabel-data {
+.table-data {
   border-bottom: dotted 1px grey;
 }
 
