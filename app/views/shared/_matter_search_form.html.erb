@@ -26,11 +26,11 @@
 <div class="search-form">
   <%= f.label :sale_time, "販売時期", class:"search-title" %>
   <p class="search-form-date">
-    <%= raw sprintf( f.date_select( :sale_time_gteq, { use_month_numbers: true, discard_day: true, prompt:'--',start_year: 2020,end_year: Time.zone.now.year+5, date_separator:'%s'}, 
+    <%= raw sprintf( f.date_select( :sale_time_gteq, { use_month_numbers: true, discard_day: true, prompt:'--',start_year: 2020,end_year: Time.zone.now.year+10, date_separator:'%s'}, 
             {class:"search-form-small"}),'<p class="search-date-unit">年</p>', '') + '<p class="search-date-unit">月〜</p>' %>
   </p>
   <p class="search-form-date">
-    <%= raw sprintf( f.date_select( :sale_time_lteq, { use_month_numbers: true, discard_day: true, prompt:'--',start_year: 2020,end_year: Time.zone.now.year+5, date_separator:'%s'},
+    <%= raw sprintf( f.date_select( :sale_time_lteq, { use_month_numbers: true, discard_day: true, prompt:'--',start_year: 2020,end_year: Time.zone.now.year+10, date_separator:'%s'},
             {class:"search-form-small"}),'<p class="search-date-unit">年</p>', '') + '<p class="search-date-unit">月</p>' %>
   </p>
 </div>
