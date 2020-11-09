@@ -1,23 +1,23 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
-<header class='main-header'>
+<header class='header-main'>
   <div class='nav'>
     <ul class='header-left'>
-      <li><%= link_to 'Top', root_path, class: "root-link" %>
+      <li><%= link_to 'TOP', root_path, class: "header-link" %>
       </li>
-      <li><%= link_to '案件登録', new_matter_path, class: "matter-registration" %>
+      <li><%= link_to '案件登録', new_matter_path, class: "header-link" %>
       </li>
-      <li><%= link_to '案件検索', search_matters_path, class: "matter-search" %>
+      <li><%= link_to '案件検索', search_matters_path, class: "header-link" %>
       </li>
     </ul>
     <ul class='header-right'>
       <li>
-        <%= link_to user_path(current_user.id), class: "mypage-link" do %>
+        <%= link_to user_path(current_user.id), class: "mypage-link header-link" do %>
         <%= image_tag current_user.user_image, class:"user-icon" %>
         <%="#{current_user.family_name}さんのマイページ"%>
         <% end %>
       </li>
       <li>
-        <%= link_to destroy_user_session_path, method: :delete, data: {confirm: "ログアウトしますか？"}, class: "logout-link" do %>
+        <%= link_to destroy_user_session_path, method: :delete, data: {confirm: "ログアウトしますか？"}, class: "header-link" do %>
         <p>ログアウト</p>
         <% end %>
       </li>
