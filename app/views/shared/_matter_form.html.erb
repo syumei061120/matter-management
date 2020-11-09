@@ -23,12 +23,12 @@
   </tr>
   <tr class="matter-table-row-low">
     <th>販売金額見込み(千円)</th>
-    <td><%= f.text_field :sale_price, class:"matter-text-field", id:"sale-price" %>
+    <td><%= f.text_field :sale_price, class:"matter-text-field" %>
     </td>
   </tr>
   <tr class="matter-table-row-low">
     <th>利益見込み(千円)</th>
-    <td><%= f.text_field :profit_price, class:"matter-text-field", id:"profit-price" %>
+    <td><%= f.text_field :profit_price, class:"matter-text-field" %>
     </td>
   </tr>
   <tr class="matter-table-row-low">
@@ -36,7 +36,8 @@
       <span class="hissu">必須</span>
     </th>
     <td>
-      <%= f.date_select :sale_time, {discard_day: true}, class:"matter-date", id:"sale-time" %>
+      <%= raw sprintf( f.date_select( :sale_time, { use_month_numbers: true, discard_day: true, start_year: 2020,end_year: Time.zone.now.year+10, date_separator:'%s'}, 
+            {class:"matter-date"}),'<p class="matter-date-unit">年</p>', '') + '<p class="matter-date-unit">月</p>' %>
     </td>
   </tr>
   <tr class="matter-table-row-low">
@@ -68,7 +69,7 @@
       <span class="hissu">必須</span>
     </th>
     <td>
-      <%= f.text_field :occasion, class:"matter-text-field", id:"occasion" %>
+      <%= f.text_field :occasion, class:"matter-text-field" %>
     </td>
   </tr>
 </table>
