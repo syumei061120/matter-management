@@ -539,7 +539,7 @@ end
   records.each do |record|
     num = rand(3)
     num.times do |i|
-      record.files.attach(io: File.open('db/files/sample1.rtf'), filename: 'sample1.rtf', content_type:'text/rtf')
+      record.files.attach(io: File.open('./db/files/sample1.rtf'), filename: 'sample1.rtf')
     end
     record.save
   end
