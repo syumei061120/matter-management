@@ -10,15 +10,17 @@
 }
 
 .user-information th {
-  width: 150px;
+  min-width: 100px;
+  width: 10vw;
   padding-left: 10px;
-  background-color: #dcdcdc;
-  border-right: solid 5px grey;
+  background-color: #CCFFCC;
+  border-right: solid 5px #7FFF00;
 }
 
 .table-title,
 .table-title_bottom {
-  width: 150px;
+  min-width: 150px;
+  width: 10vw;
   padding: 10px;
   background-color: #fff;
 }
@@ -29,6 +31,7 @@
 
 .table-data,
 .table-data_bottom {
+  min-width: 300px;
   width: 400px;
   padding: 10px;
   background-color: #fff;

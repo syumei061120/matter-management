@@ -1,7 +1,7 @@
 if (document.URL.match(/users\/(\d+)$/)){
   document.addEventListener('DOMContentLoaded', function () {
     const userInformationLink = document.getElementById("user-information-link")
-    userInformationLink.setAttribute("style", "color:#00ffff;")
+    userInformationLink.setAttribute("style", "color:#7FFF00;")
   });
 }
 

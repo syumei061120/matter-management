@@ -2,7 +2,11 @@
 <div class="matter-information">
   <%= render partial:"shared/matter_information_side" , locals: { matter: @matter }%>
   <div class="left-side">
-    <h2><%= @matter.matter_name %></h2>
+    <h2><%= @matter.matter_name %>
+    </h2>
+    <p class="matter-time">
+      <%= "#{@matter.updated_at.strftime("%Y-%m-%d %H:%M")}更新" %>
+    </p>
     <table class="matter-information-table">
       <tr class="matter-information-table-row-high">
         <th>案件詳細</th>
