@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_action :matter_find, only: [:index, :edit, :update]
+  before_action :matter_find, only: [:index, :new, :edit, :update]
   before_action :client_find, only: [:edit, :update, :destroy]
   before_action :client_first, only: [:create, :update]
   before_action :matter_client_find, only: [:create, :update]
@@ -10,6 +10,9 @@ class ClientsController < ApplicationController
   end
 
   def new
+    unless @matter.user.administrator_id == 2 || @matter.user == current_user
+      redirect_to matter_clients_path(matter_id: params[:matter_id])
+    end
     @client = Client.new
   end
 
@@ -26,6 +29,12 @@ class ClientsController < ApplicationController
       redirect_to matter_clients_path(matter_id: params[:matter_id])
     else
       render :new and return
+    end
+  end
+
+  def edit
+    unless @matter.user.administrator_id == 2 || @matter.user == current_user
+      redirect_to matter_clients_path(matter_id: params[:matter_id])
     end
   end
 

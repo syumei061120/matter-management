@@ -41,6 +41,12 @@ class MattersController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    unless @matter.user.administrator_id == 2 || @matter.user == current_user
+      redirect_to matter_path
+    end
+  end
+
   def update
     if @matter.update(matter_params)
       redirect_to matter_path(@matter)

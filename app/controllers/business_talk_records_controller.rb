@@ -1,12 +1,15 @@
 class BusinessTalkRecordsController < ApplicationController
+  before_action :matter_find, only: [:index, :new, :edit]
   after_action :updated_daytime_edit, only: [:create, :update]
 
   def index
-    @matter = Matter.find(params[:matter_id])
     @business_talk_records = BusinessTalkRecord.where(matter_id: params[:matter_id]).order(end_time: 'DESC')
   end
 
-  def new
+  def new    
+    unless @matter.user.administrator_id == 2 || @matter.user == current_user
+      redirect_to matter_business_talk_records_path(matter_id: params[:matter_id])
+    end
     @business_talk_record = BusinessTalkRecord.new
   end
 
@@ -27,6 +30,9 @@ class BusinessTalkRecordsController < ApplicationController
   end
 
   def edit
+    unless @matter.user.administrator_id == 2 || @matter.user == current_user
+      redirect_to matter_business_talk_records_path(matter_id: params[:matter_id])
+    end
     @business_talk_record = BusinessTalkRecord.find(params[:id])
   end
 
@@ -72,6 +78,10 @@ class BusinessTalkRecordsController < ApplicationController
 
   def business_talk_record_params
     params.require(:business_talk_record).permit(:start_time, :end_time, :explain, files: []).merge(user_id: current_user.id, matter_id: params[:matter_id])
+  end
+
+  def matter_find
+    @matter = Matter.find(params[:matter_id])
   end
 
   def updated_daytime_edit
