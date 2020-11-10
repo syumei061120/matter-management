@@ -4,7 +4,7 @@ toyotomi = User.create(family_name: '豊臣', first_name: '秀吉', family_name_
 tokugawa = User.create(family_name: '徳川', first_name: '家康', family_name_kana: 'トクガワ', first_name_kana: 'イエヤス', administrator_id: 1, email: 'tokugawa@tokugawa.com', password: 'tokugawa1234', password_confirmation: 'tokugawa1234')
 
 [takeda, oda, toyotomi, tokugawa].each do |user|
-  user.user_image.attach(io: File.open('public/images/sample1.png'), filename: 'sample1.png', content_type:'image/png')
+  user.user_image.attach(io: File.open('db/images/sample1.png'), filename: 'sample1.png', content_type:'image/png')
   user.save
 end
 
@@ -307,7 +307,7 @@ end
   records.each do |record|
     num = rand(5)
     num.times do |i|
-      record.files.attach(io: File.open('public/files/sample1.rtf'), filename: 'sample1.rtf', content_type:'text/rtf')
+      record.files.attach(io: File.open('db/files/sample1.rtf'), filename: 'sample1.rtf', content_type:'text/rtf')
     end
     record.save
   end
@@ -366,7 +366,7 @@ end
   records.each do |record|
     num = rand(3)
     num.times do |i|
-      record.files.attach(io: File.open('public/files/sample1.rtf'), filename: 'sample1.rtf', content_type:'text/rtf')
+      record.files.attach(io: File.open('db/files/sample1.rtf'), filename: 'sample1.rtf', content_type:'text/rtf')
     end
     record.save
   end
@@ -481,7 +481,7 @@ end
   records.each do |record|
     num = rand(5)
     num.times do |i|
-      record.files.attach(io: File.open('public/files/sample1.rtf'), filename: 'sample1.rtf', content_type:'text/rtf')
+      record.files.attach(io: File.open('db/files/sample1.rtf'), filename: 'sample1.rtf', content_type:'text/rtf')
     end
     record.save
   end
@@ -539,7 +539,7 @@ end
   records.each do |record|
     num = rand(3)
     num.times do |i|
-      record.files.attach(io: File.open('public/files/sample1.rtf'), filename: 'sample1.rtf', content_type:'text/rtf')
+      record.files.attach(io: File.open('db/files/sample1.rtf'), filename: 'sample1.rtf', content_type:'text/rtf')
     end
     record.save
   end
