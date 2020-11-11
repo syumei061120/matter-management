@@ -10,7 +10,7 @@ class SalesStaffsController < ApplicationController
   end
 
   def update
-    @sales_staff = SalesStaff.where(department: params[:sales_staff][:department], staff: params[:sales_staff][:staff]).first_or_initialize
+    @sales_staff = SalesStaff.where(sales_staff_params).first_or_initialize
     @matter = Matter.find(params[:matter_id])
     if @sales_staff.valid?
       @sales_staff.save
