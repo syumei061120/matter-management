@@ -7,7 +7,7 @@
       <%= form_with model: @client, url:clients_matters_path, class:"matter-forms", local: true do |f|  %>
       <%= render partial: "shared/client_form", locals: { f: f } %>
       <div>
-        <%= f.submit "営業スタッフの登録へ" ,class:"user-button" %>
+        <%= f.submit "担当営業の登録へ" ,class:"user-button" %>
       </div>
       <% end %>
     </div>
