@@ -4,7 +4,7 @@
     <td> <%= matter_client.client.company %>
     </td>
     <td class="link-td">
-      <% if @matter.user.administrator_id == 2 || @matter.user == current_user%>
+      <% if current_user.administrator_id == 2 || @matter.user == current_user%>
       <%= link_to image_tag("edit-icon"), edit_matter_client_path(matter_id: @matter.id, id: matter_client.client_id), class:"client-edit-link" %>
       <%= link_to image_tag("delete-icon"), matter_client_path(matter_id: @matter.id, id: matter_client.client_id), method: :delete, data: {confirm: "削除しますか？"}, class:"client-edit-link" %>
       <% end %>

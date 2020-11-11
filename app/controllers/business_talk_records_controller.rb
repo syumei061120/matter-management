@@ -30,7 +30,7 @@ class BusinessTalkRecordsController < ApplicationController
   end
 
   def edit
-    unless @matter.user.administrator_id == 2 || @matter.user == current_user
+    unless current_user.administrator_id == 2 || @matter.user == current_user
       redirect_to matter_business_talk_records_path(matter_id: params[:matter_id])
     end
     @business_talk_record = BusinessTalkRecord.find(params[:id])
@@ -60,6 +60,9 @@ class BusinessTalkRecordsController < ApplicationController
   end
 
   def destroy
+    unless current_user.administrator_id == 2 || @matter.user == current_user
+      redirect_to matter_business_talk_records_path(matter_id: params[:matter_id])
+    end
     @business_talk_record = BusinessTalkRecord.find(params[:id])
     path = Rails.application.routes.recognize_path(request.referer)
     @business_talk_record.destroy

@@ -2,11 +2,17 @@ class SalesStaffsController < ApplicationController
   after_action :updated_daytime_edit, only: [:update]
 
   def edit
+    unless current_user.administrator_id == 2 || @matter.user == current_user
+      redirect_to matter_clients_path(matter_id: params[:matter_id])
+    end
     @sales_staff = SalesStaff.find(params[:id])
     @matter = Matter.find(params[:matter_id])
   end
 
   def update
+    unless current_user.administrator_id == 2 || @matter.user == current_user
+      redirect_to matter_clients_path(matter_id: params[:matter_id])
+    end
     @sales_staff = SalesStaff.where(department: params[:sales_staff][:department], staff: params[:sales_staff][:staff]).first_or_initialize
     @matter = Matter.find(params[:matter_id])
     if @sales_staff.valid?

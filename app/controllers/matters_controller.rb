@@ -42,7 +42,7 @@ class MattersController < ApplicationController
   end
 
   def edit
-    unless @matter.user.administrator_id == 2 || @matter.user == current_user
+    unless current_user.administrator_id == 2 || @matter.user == current_user
       redirect_to matter_path
     end
   end
@@ -84,6 +84,9 @@ class MattersController < ApplicationController
   end
 
   def destroy
+    unless current_user.administrator_id == 2 || @matter.user == current_user
+      redirect_to matter_path
+    end
     @sales_staff = SalesStaff.find(@matter.sales_staff_id)
     @matter_clients = MatterClient.where(matter_id: params[:id])
     @matter_clients.each do |matter_client|

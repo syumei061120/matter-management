@@ -17,7 +17,7 @@
           <%= business_talk_record.end_time.strftime("%Y-%m-%d %H:%M") %>
         </td>
         <td class="link-td">
-          <% if @matter.user.administrator_id == 2 || @matter.user == current_user%>
+          <% if current_user.administrator_id == 2 || @matter.user == current_user%>
           <%= link_to image_tag("edit-icon"), edit_matter_business_talk_record_path(matter_id: @matter.id, id: business_talk_record.id), class:"client-edit-link" %>
           <%= link_to image_tag("delete-icon"), matter_business_talk_record_path(matter_id: @matter.id, id: business_talk_record.id), method: :delete, data: {confirm: "削除しますか？"}, class:"client-edit-link" %>
           <% end %>

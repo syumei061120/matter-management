@@ -10,7 +10,7 @@ class ClientsController < ApplicationController
   end
 
   def new
-    unless @matter.user.administrator_id == 2 || @matter.user == current_user
+    unless current_user.administrator_id == 2 || @matter.user == current_user
       redirect_to matter_clients_path(matter_id: params[:matter_id])
     end
     @client = Client.new
@@ -33,7 +33,7 @@ class ClientsController < ApplicationController
   end
 
   def edit
-    unless @matter.user.administrator_id == 2 || @matter.user == current_user
+    unless current_user.administrator_id == 2 || @matter.user == current_user
       redirect_to matter_clients_path(matter_id: params[:matter_id])
     end
   end
@@ -60,6 +60,9 @@ class ClientsController < ApplicationController
   end
 
   def destroy
+    unless current_user.administrator_id == 2 || @matter.user == current_user
+      redirect_to matter_clients_path(matter_id: params[:matter_id])
+    end
     @matter_client = MatterClient.find_by(matter_id: params[:matter_id], client_id: params[:id])
     path = Rails.application.routes.recognize_path(request.referer)
     if MatterClient.where(matter_id: params[:matter_id]).count == 1
