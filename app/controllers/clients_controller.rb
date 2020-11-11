@@ -108,7 +108,7 @@ class ClientsController < ApplicationController
   end
 
   def updated_daytime_edit
-    require "date"
+    require 'date'
     @matter = Matter.find(params[:matter_id])
     @matter.update(updated_daytime: DateTime.now)
   end

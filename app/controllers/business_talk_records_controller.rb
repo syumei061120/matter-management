@@ -6,7 +6,7 @@ class BusinessTalkRecordsController < ApplicationController
     @business_talk_records = BusinessTalkRecord.where(matter_id: params[:matter_id]).order(end_time: 'DESC')
   end
 
-  def new    
+  def new
     unless @matter.user.administrator_id == 2 || @matter.user == current_user
       redirect_to matter_business_talk_records_path(matter_id: params[:matter_id])
     end
@@ -88,7 +88,7 @@ class BusinessTalkRecordsController < ApplicationController
   end
 
   def updated_daytime_edit
-    require "date"
+    require 'date'
     @matter = Matter.find(params[:matter_id])
     @matter.update(updated_daytime: DateTime.now)
   end

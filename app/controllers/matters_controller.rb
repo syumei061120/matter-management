@@ -12,6 +12,7 @@ class MattersController < ApplicationController
   def create
     @matter = Matter.new(matter_params)
     render :new and return unless @matter.valid?
+
     session['matter_data'] = { matter: @matter.attributes }
     @client = Client.new
     render :new_client
@@ -42,9 +43,7 @@ class MattersController < ApplicationController
   end
 
   def edit
-    unless current_user.administrator_id == 2 || @matter.user == current_user
-      redirect_to matter_path
-    end
+    redirect_to matter_path unless current_user.administrator_id == 2 || @matter.user == current_user
   end
 
   def update
@@ -84,9 +83,7 @@ class MattersController < ApplicationController
   end
 
   def destroy
-    unless current_user.administrator_id == 2 || @matter.user == current_user
-      redirect_to matter_path
-    end
+    redirect_to matter_path unless current_user.administrator_id == 2 || @matter.user == current_user
     @sales_staff = SalesStaff.find(@matter.sales_staff_id)
     @matter_clients = MatterClient.where(matter_id: params[:id])
     @matter_clients.each do |matter_client|
@@ -103,7 +100,7 @@ class MattersController < ApplicationController
   private
 
   def matter_params
-    require "date"
+    require 'date'
     params.require(:matter).permit(:matter_name, :matter_explain, :product, :sale_price, :profit_price, :sale_time, :priority_id, :reliability_id, :progress_id, :occasion).merge(user_id: current_user.id, updated_daytime: DateTime.now)
   end
 
