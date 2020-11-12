@@ -1,5 +1,5 @@
 class BusinessTalkRecordsController < ApplicationController
-  before_action :matter_find, only: [:index, :new, :edit]
+  before_action :matter_find, only: [:index, :new, :edit, :destroy]
   after_action :updated_daytime_edit, only: [:create, :update]
 
   def index
