@@ -69,7 +69,7 @@
 | 商談記録削除機能 | ・登録済みの案件に紐づく商談を削除できる<br>・案件の登録者か管理者のみ削除可能 | ・登録済みの商談履歴を削除できる |
 
 # 機能詳細
-<img src="https://github.com/syumei061120/matter-management/wiki/gif/matter-search.gif" width="300">
+<img src="https://github.com/syumei061120/matter-management/wiki/gif/matter-search.gif" width="500">
 
 
 
