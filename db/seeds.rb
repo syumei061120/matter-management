@@ -174,7 +174,6 @@ Client.create!(
     { company: '島津株式会社', department: '薩摩部', name: '島津義弘' },
     { company: '島津株式会社', department: '薩摩部', name: '島津歳久' },
     { company: '島津株式会社', department: '薩摩部', name: '島津家久' },
-    { company: '島津株式会社', department: '薩摩部', name: '島津家久' },
     { company: '真田株式会社', department: '沼田部', name: '真田昌幸' },
     { company: '真田株式会社', department: '沼田部', name: '真田信之' },
     { company: '真田株式会社', department: '沼田部', name: '真田信繁' },
@@ -186,7 +185,7 @@ Client.create!(
 )
 
 10.times do |num|
-  if (num + 1) % 3 == 1
+  if (num + 1) % 4 == 1
     MatterClient.create(matter_id: "#{num+1}", client_id: 1)
     MatterClient.create(matter_id: "#{num+1}", client_id: 2)
     MatterClient.create(matter_id: "#{num+1}", client_id: 3)
