@@ -37,7 +37,7 @@
       </tr>
       <tr class="matter-information-table-row-low">
         <th>販売見込み時期</th>
-        <td><%= @matter.sale_time %></td>
+        <td><%= "#{@matter.sale_time.strftime("%Y")}年#{@matter.sale_time.strftime("%m")}月" %></td>
       </tr>
       <tr class="matter-information-table-row-low">
         <th>重点度</th>
