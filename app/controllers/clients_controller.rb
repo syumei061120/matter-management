@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_action :matter_find, only: [:index, :new, :edit, :update]
+  before_action :matter_find, only: [:index, :new, :edit, :update, :destroy]
   before_action :client_find, only: [:edit, :update, :destroy]
   before_action :client_first, only: [:create, :update]
   before_action :matter_client_find, only: [:create, :update]
