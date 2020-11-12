@@ -177,7 +177,7 @@ Client.create!(
     { company: '真田株式会社', department: '沼田部', name: '真田昌幸' },
     { company: '真田株式会社', department: '沼田部', name: '真田信之' },
     { company: '真田株式会社', department: '沼田部', name: '真田信繁' },
-    { company: '真田株式会社', department: '沼田部', name: '真田昌幸' },
+    { company: '真田株式会社', department: '沼田部', name: '真田幸昌' },
     { company: '長宗我部株式会社', department: '土佐部', name: '長宗我部元親' },
     { company: '長宗我部株式会社', department: '土佐部', name: '長宗我部信親' },
     { company: '長宗我部株式会社', department: '土佐部', name: '長宗我部盛親' }
