@@ -156,7 +156,7 @@ Matter.create(
   user_id: 4,
   sales_staff_id: 1,
   matter_name: '島津社へPCキッティング',
-  matter_explain: '尾張社のPC入れ替えに伴い、100台のパソコンキッティング案件\r\n',
+  matter_explain: '島津社のPC入れ替えに伴い、100台のパソコンキッティング案件\r\n',
   product: 'キッティングサービス',
   sale_price: 30000,
   profit_price: 2222,
@@ -185,7 +185,7 @@ Client.create!(
 )
 
 10.times do |num|
-  if (num + 1) % 4 == 1
+  if (num + 1) % 3 == 1
     MatterClient.create(matter_id: "#{num+1}", client_id: 1)
     MatterClient.create(matter_id: "#{num+1}", client_id: 2)
     MatterClient.create(matter_id: "#{num+1}", client_id: 3)
