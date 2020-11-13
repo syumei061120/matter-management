@@ -40,9 +40,6 @@ http://54.238.110.156/
     - 削除機能
   - 商談記録の一覧表示/登録/編集/削除機能
 
-# 開発環境
-  Ruby / Ruby on Rails / MySQL / GitHub / Visual Studio Code / Trello
-
 # 利用方法
   - WebブラウザGoogle Chromeの最新版を利用してアクセスしてください。
     - ただしデプロイ等で接続できないタイミングもございます。その際は少し時間をおいてから接続してください。
@@ -65,7 +62,7 @@ http://54.238.110.156/
 
 # 機能詳細
 ## 案件登録機能
-<img src="https://github.com/syumei061120/matter-management/wiki/gif/matter-registration.gif" width="400">
+<img src="https://github.com/syumei061120/matter-management/wiki/gif/matter-registration.gif" width="600">
 Topページから「案件登録」を押下し、登録ページにアクセスできます。
 このページでは、案件情報→顧客情報→担当営業情報を入力することで新規案件を登録できます。
 必須項目となっている項目は未入力状態では次のページにアクセスできません。
@@ -74,7 +71,7 @@ Topページから「案件登録」を押下し、登録ページにアクセ�
 ページ毎に入力する情報が纏まることによる使いやすさと、1つのページが長くなら無いことで見やすいページになるようにしました。
 
 ## 案件編集機能
-<img src="https://github.com/syumei061120/matter-management/wiki/gif/matter-edit.giff" width="500">
+<img src="https://github.com/syumei061120/matter-management/wiki/gif/matter-edit.giff" width="600">
 Topページor検索ページで案件を選択し、案件詳細ページのサイドバーにある「案件情報編集」を押下することで編集ページにアクセスできます。
 このページでは、登録済み案件の情報を編集できます。
 
@@ -83,7 +80,7 @@ Topページor検索ページで案件を選択し、案件詳細ページのサ
 後者は、メンテナンス性を向上させるために共通にしました。
 
 ## 案件検索機能
-<img src="https://github.com/syumei061120/matter-management/wiki/gif/matter-search.gif" width="500">
+<img src="https://github.com/syumei061120/matter-management/wiki/gif/matter-search.gif" width="600">
 Topページからヘッダーのにある「案件検索」を押下し、検索ページにアクセスできます。
 複数条件を指定して、編集したい案件や状況を確認したい案件を簡単に探すことができます。
 
@@ -91,7 +88,7 @@ Topページからヘッダーのにある「案件検索」を押下し、検�
 その他、検索項目が多くありますが、使いやすさと見やすさを意識してチェックボックスやプルダウン、アコーディオンメニュー組み合わせた点も工夫しました。
 
 ## 担当営業編集機能
-<img src="https://github.com/syumei061120/matter-management/wiki/gif/sales.gif" width="500">
+<img src="https://github.com/syumei061120/matter-management/wiki/gif/sales.gif" width="600">
 Topページor検索ページで案件を選択し、案件詳細ページでサイドバーにある「担当営業情報情報編集」を押下することで編集ページにアクセスできます。
 このページでは、選択肢た案件の担当営業情報を編集できます。
 
@@ -99,7 +96,7 @@ Topページor検索ページで案件を選択し、案件詳細ページでサ
 その他、営業は1人だけ登録できるようにして、営業担当とフロントSEの担当者（自身）を明確にしました。
 
 ## 顧客の一覧表示/登録/編集/削除機能
-<img src="https://github.com/syumei061120/matter-management/wiki/gif/client.gif" width="500">
+<img src="https://github.com/syumei061120/matter-management/wiki/gif/client.gif" width="600">
 Topページor検索ページで案件を選択し、案件詳細ページでサイドバーにある「顧客情報一覧」を押下することで一覧ページにアクセスできます。
 同様にサイドバーにある「顧客情報追記」を押下することで新しい顧客情報の追加が可能です。
 編集/削除機能は登録済みの顧客情報の右上のアイコンを押下することで編集や削除が可能です。
@@ -109,7 +106,7 @@ Topページor検索ページで案件を選択し、案件詳細ページでサ
 また、案件を削除する際は、顧客が紐づく案件が削除対象の案件のみであれば顧客テーブルと中間テーブルの両方から削除します。もし他の案件と紐づいている場合は中間テーブルのみ削除します。
 
 ## 商談記録の一覧表示/登録/編集/削除機能
-<img src="https://github.com/syumei061120/matter-management/wiki/gif/client.gif" width="500">
+<img src="https://github.com/syumei061120/matter-management/wiki/gif/client.gif" width="600">
 Topページor
 検索ページで案件を選択し、案件詳細ページでサイドバーにある「商談記録一覧」を押下することで一覧ページにアクセスできます。
 同様にサイドバーにある「商談記録登録」を押下することで新しい商談記録の追加が可能です。
@@ -118,6 +115,26 @@ Topページor
 工夫した点は、商談記録の一覧ページを設けた点です。
 案件詳細ページには直近の商談記録のみ表示し、過去の商談記録は一覧ページで確認できます。
 このことにより、案件詳細ページの視認性を上げることができました。
+
+# 使用技術
+## バックエンド
+Ruby, Ruby on Rails
+## フロントエンド
+JavaScript
+## データベース
+MySQL, SequelPro
+## インフラ
+AWS（EC2）, Capistrano
+## Webサーバ（本番環境）
+nginx
+## アプリケーションサーバ（本番環境）
+unicorn
+## ソース管理
+GitHub, GitHubDesktop
+## テスト
+RSpec
+## エディタ
+VSCode
 
 # 実装予定の機能
 - 案件集計機能
