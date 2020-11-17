@@ -9,9 +9,9 @@
       <table class="user-table">
         <tr>
           <th>アイコン画像</th>
-          <td><%= f.file_field :user_image, id:"user-image" %>
+          <td><%= f.file_field :user_image, id:"user_image" %>
             <div id="user-image-list"></div>
-            <%= image_tag @user.user_image, id: 'user-image', class:"user-image-registered" %>
+            <%= image_tag @user.user_image, id: 'user_image', class:"user-image-registered" %>
           </td>
         </tr>
         <tr>
@@ -21,7 +21,7 @@
         </tr>
         <tr>
           <th>名</th>
-          <td><%= f.text_area :first_name, class:"user-text", id:"first-name" %>
+          <td><%= f.text_area :first_name, class:"user-text", id:"first_name" %>
           </td>
         </tr>
         <tr>
