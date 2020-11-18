@@ -8,10 +8,10 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       post 'search'
-      get 'clients', to: 'matters#new_client'
-      post 'clients', to: 'matters#create_client'
     end
   end
+  get 'clients', to: 'matters#new_client'
+  post 'clients', to: 'matters#create_client'
   get 'sales_staffs', to: 'matters#new_sales_staff'
   post 'sales_staffs', to: 'matters#create_sales_staff'
   resources :users, only: [:show, :edit, :update]

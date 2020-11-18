@@ -4,7 +4,7 @@
       <h2>顧客情報を登録してください</h2>
     </div>
     <div class="matter-main">
-      <%= form_with model: @client, url:clients_matters_path, class:"matter-forms", local: true do |f|  %>
+      <%= form_with model: @client, url:clients_path, class:"matter-forms", local: true do |f|  %>
       <%= render partial: "shared/client_form", locals: { f: f } %>
       <div>
         <%= f.submit "担当営業の登録へ" ,class:"user-button" %>

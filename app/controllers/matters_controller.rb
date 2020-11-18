@@ -14,8 +14,11 @@ class MattersController < ApplicationController
     render :new and return unless @matter.valid?
 
     session['matter_data'] = { matter: @matter.attributes }
+    redirect_to clients_path
+  end
+
+  def new_client
     @client = Client.new
-    render :new_client
   end
 
   def create_client
@@ -23,9 +26,13 @@ class MattersController < ApplicationController
     render :new_client and return unless @client.valid?
 
     session['client_data'] = { client: @client.attributes }
-    @sales_staff = SalesStaff.new
-    render :new_sales_staff
+    redirect_to sales_staffs_path
   end
+  
+  def new_sales_staff
+    @sales_staff = SalesStaff.new
+  end
+
 
   def create_sales_staff
     @matter = Matter.new(session['matter_data']['matter'])
