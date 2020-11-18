@@ -4,13 +4,13 @@
     <th>案件名
       <span class="hissu">必須</span>
     </th>
-    <td><%= f.text_field :matter_name, class:"matter-text-field", id:"matter-name" %>
+    <td><%= f.text_field :matter_name, class:"matter-text-field", id:"matter_name" %>
     </td>
   </tr>
   <tr class="matter-table-row-high">
     <th>案件詳細</th>
     <td>
-      <%= f.text_area :matter_explain, class:"matter-text-area-high", id:"matter-explain" %>
+      <%= f.text_area :matter_explain, class:"matter-text-area-high", id:"matter_explain" %>
     </td>
   </tr>
   <tr class="matter-table-row-low">
@@ -23,12 +23,12 @@
   </tr>
   <tr class="matter-table-row-low">
     <th>販売金額見込み(千円)</th>
-    <td><%= f.text_field :sale_price, class:"matter-text-field" %>
+    <td><%= f.text_field :sale_price, class:"matter-text-field", id:"sale_price" %>
     </td>
   </tr>
   <tr class="matter-table-row-low">
     <th>利益見込み(千円)</th>
-    <td><%= f.text_field :profit_price, class:"matter-text-field" %>
+    <td><%= f.text_field :profit_price, class:"matter-text-field", id:"profit_price" %>
     </td>
   </tr>
   <tr class="matter-table-row-low">
