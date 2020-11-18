@@ -33,7 +33,6 @@ class MattersController < ApplicationController
     @sales_staff = SalesStaff.new
   end
 
-
   def create_sales_staff
     @matter = Matter.new(session['matter_data']['matter'])
     @client = Client.new(session['client_data']['client'])
