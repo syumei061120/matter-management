@@ -10,5 +10,6 @@ FactoryBot.define do
     reliability_id { Faker::Number.between(from: 1, to: 6) }
     progress_id { Faker::Number.between(from: 1, to: 6) }
     occasion { Faker::Lorem.word }
+    updated_daytime { Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) }
   end
 end
